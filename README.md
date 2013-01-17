@@ -19,3 +19,6 @@ install_github("plotflow", "trinker")
 
 ### Note
 [ghostscript](http://www.ghostscript.com/) must be installed and on your path.
+
+[Help Manual (-click here-)](https://dl.dropbox.com/u/61803503/plotflow.pdf)
+
