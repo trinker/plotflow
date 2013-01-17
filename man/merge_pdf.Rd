@@ -21,11 +21,6 @@
   \item{n.lines}{A vector of integer values indicating the
   number of lines each plotting sequance will take.
   Default is 1 line each.}
-
-  \item{os}{An optional character string (\code{"unix",
-  "win32", or "win64"}) that indicates the ghostscript
-  version.  \code{merge_pdf} attempts to detect this
-  automatically.}
 }
 \value{
   Returns a single combined plot of various sizes.
