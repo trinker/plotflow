@@ -1,22 +1,22 @@
 #helper function
 mergePDF <-
-function(..., file, os = NULL, in.file = NULL) {
+mergePDF <-
+  function(..., file, gsversion = NULL, in.file = NULL) {
     if (is.null(in.file)) {
-        in.file <- substitute(...())
+      in.file <- substitute(...())
     } 
     infiles <- paste(unlist(lapply(in.file, function(y) as.character(y))), 
-        collapse = " ")
-    if (is.null(os)) {
-        testme <- c(UNIX = "gs -version", 
-            Win32 = "gswin32c -version", 
-            Win64 = "gswin64c -version")
-        os <- names(which(sapply(testme, system, 
-            ignore.stderr = TRUE, ignore.stdout = TRUE) == 0))
+                     collapse = " ")
+    
+    if (is.null(gsversion)) {
+      gsversion <- names(which(Sys.which(c("gs", "gswin32c", "gswin64c")) != ""))
+      if (length(gsversion) == 0) 
+        stop("Please install Ghostscript and ensure it is in your PATH")
+      if (length(gsversion) > 1)
+        stop("More than one Ghostscript executable was found:", 
+             paste(gsversion, collapse = " "), 
+             ". Please specify which version should be used with the gsversion argument")
     }   
-    version <- switch(os,
-        unix = "gs",
-        win32 = "gswin32c",
-        win64 = "gswin64c")
     pre = " -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile="
-    system(paste(paste(version, pre, file, sep = ""), infiles, collapse = " "))
+    system(paste(paste(gsversion, pre, file, sep = ""), infiles, collapse = " "))
 }
