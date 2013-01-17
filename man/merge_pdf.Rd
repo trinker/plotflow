@@ -3,7 +3,7 @@
 \title{Muerge Differnt Sized Plots}
 \usage{
   merge_pdf(n.plots, file, widths = 8, heights = 8,
-    n.lines = 1, os = NULL)
+    n.lines = 1)
 }
 \arguments{
   \item{n.plots}{The number of plots to be combined.}

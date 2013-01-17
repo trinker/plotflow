@@ -34,7 +34,7 @@
 #' }
 #' }
 merge_pdf <-
-function(n.plots, file, widths = 8, heights = 8, n.lines = 1, os = NULL) {
+function(n.plots, file, widths = 8, heights = 8, n.lines = 1) {
     xs <- c(n.plots, 1)
     if ((!length(widths) %in% xs) || (!length(heights) %in% xs) || (!length(n.lines) %in% xs)) {
         stop("widths and heights must be length 1 or equal to  n.plots")
@@ -62,7 +62,7 @@ function(n.plots, file, widths = 8, heights = 8, n.lines = 1, os = NULL) {
     base <- gsub(".pdf", "", file, fixed = TRUE)
     files <- paste0(base, 1:n.plots, ".pdf")
     ins <- paste(files, collapse = " ")
-    mergePDF(in.file = ins, file = file, os=os)
+    mergePDF(in.file = ins, file = file)
     unlink(files, recursive = TRUE, force = FALSE)
     cat("\n")
     cat(paste(file, "written to:", paste0(getwd(), "/", file, "\n")))
