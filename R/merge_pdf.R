@@ -4,9 +4,9 @@
 #' 
 #' @param n.plots The number of plots to be combined.
 #' @param file A connection, or a character string naming the file to print to.
-#' @param widths A vector of widths equal to \code{n.plots} or a signle value 
+#' @param widths A vector of widths equal to \code{n.plots} or a single value 
 #' that will be used for all plot widths.
-#' @param heights A vector of heights equal to \code{n.plots} or a signle value 
+#' @param heights A vector of heights equal to \code{n.plots} or a single value 
 #' that will be used for all plot widths.
 #' @param n.lines A vector of integer values indicating the number of lines each 
 #' plotting sequance will take.  Default is 1 line each.

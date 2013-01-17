@@ -12,10 +12,10 @@
   the file to print to.}
 
   \item{widths}{A vector of widths equal to \code{n.plots}
-  or a signle value that will be used for all plot widths.}
+  or a single value that will be used for all plot widths.}
 
   \item{heights}{A vector of heights equal to
-  \code{n.plots} or a signle value that will be used for
+  \code{n.plots} or a single value that will be used for
   all plot widths.}
 
   \item{n.lines}{A vector of integer values indicating the
