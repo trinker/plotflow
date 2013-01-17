@@ -10,7 +10,8 @@ function(..., file, os = NULL, in.file = NULL) {
         testme <- c(UNIX = "gs -version", 
             Win32 = "gswin32c -version", 
             Win64 = "gswin64c -version")
-        os <- tolower(names(which(sapply(testme, system) == 0)))
+        os <- names(which(sapply(testme, system, 
+            ignore.stderr = TRUE, ignore.stdout = TRUE) == 0))
     }   
     version <- switch(os,
         unix = "gs",
