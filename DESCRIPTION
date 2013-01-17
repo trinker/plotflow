@@ -3,7 +3,7 @@ Type: Package
 Title: plotflow: Tools to speed up workflow associated with plotting
 Version: 1.0
 Date: 2013-01-16
-Author: Tyler Rinker
+Author: Tyler Rinker & Ananda Mahto
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Description: Plotting functions associated with plotting to external files.
 License: GPL-2
