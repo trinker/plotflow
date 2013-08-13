@@ -1,6 +1,6 @@
 \name{merge_pdf}
 \alias{merge_pdf}
-\title{Muerge Differnt Sized Plots}
+\title{Merge Differnt Sized Plots}
 \usage{
   merge_pdf(n.plots, file, widths = 8, heights = 8,
     n.lines = 1)
@@ -34,7 +34,6 @@
 }
 \examples{
 \dontrun{
-\dontrun{
 merge_pdf(3, file = "foo.pdf", widths = c(7, 7, 10), heights = c(6, 10, 7))
 plot(1:10)
 plot(1:10, pch=19)
@@ -45,7 +44,6 @@ p <- ggplot(mtcars, aes(factor(cyl), mpg)) + geom_boxplot()
 merge_pdf(2, file = "bar.pdf", widths = c(7, 10), heights = c(6, 10))
 plot(1:10)
 print(p)
-}
 }
 }
 \keyword{plot}

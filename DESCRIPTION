@@ -11,3 +11,4 @@ Collate:
     'merge_pdf.R'
     'mergePDF.R'
     'plotflow-package.R'
+    'order_by.R'

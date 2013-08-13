@@ -1,4 +1,4 @@
-#' Muerge Differnt Sized Plots
+#' Merge Differnt Sized Plots
 #' 
 #' Allows for merging of different sized R plots.
 #' 
@@ -17,7 +17,6 @@
 #' @export 
 #' @examples
 #' \dontrun{
-#' \dontrun{
 #' merge_pdf(3, file = "foo.pdf", widths = c(7, 7, 10), heights = c(6, 10, 7))
 #' plot(1:10)
 #' plot(1:10, pch=19)
@@ -28,7 +27,6 @@
 #' merge_pdf(2, file = "bar.pdf", widths = c(7, 10), heights = c(6, 10))
 #' plot(1:10)
 #' print(p)
-#' }
 #' }
 merge_pdf <-
 function(n.plots, file, widths = 8, heights = 8, n.lines = 1) {
