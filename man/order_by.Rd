@@ -2,21 +2,24 @@
 \alias{order_by}
 \title{Order a Factor by Numeric Variable(s)}
 \usage{
-  order_by(x, fact, by, df = TRUE)
+  order_by(fact, by, dat, FUN = NULL, df = TRUE)
 }
 \arguments{
-  \item{x}{A \code{data.frame} object.}
-
   \item{fact}{The factor to be reordered (re-leveled).}
 
   \item{by}{A formula to order the factor by.}
+
+  \item{dat}{A \code{data.frame} object.}
+
+  \item{FUN}{A function to compute the summary statistics
+  which can be applied to all data subsets.}
 
   \item{df}{logical.  If \code{TRUE} a dataframe is
   returned.  If \code{FALSE} a factor vector is returned.}
 }
 \value{
-  Returns a re-ordered (re-leveled) dataframe or factor
-  vector.
+  Returns a re-ordered (re-leveled) dataframe, factor
+  vector, or levels.
 }
 \description{
   Create a new dataframe with a factor reordered
@@ -24,6 +27,8 @@
 }
 \examples{
 \dontrun{
+## EXAMPLE 1 - no aggregation ##
+
 ## Make a fake data set
 dat <- aggregate(cbind(mpg, hp, disp)~carb, mtcars, mean)
 dat$carb <- factor(dat$carb)
@@ -43,8 +48,22 @@ ggplot(order_by(x = dat, carb, ~mpg), aes(x=carb, y=mpg)) +
     geom_bar(stat="identity") +
     coord_flip()
 
+## EXAMPLE 2 - with aggregation ##
+
 ## Return just the vector with new levels
 order_by(x = dat, carb, ~-hp + -mpg, FALSE)
+
+mtcars2 <- order_by(gear, ~hp + -carb, mtcars, mean)
+
+## Without re-leveling gear
+ggplot(mtcars, aes(mpg, hp)) +
+    geom_point(aes(color=factor(cyl))) +
+    facet_grid(gear~.)
+
+## After re-leveling gear
+ggplot(mtcars2, aes(mpg, hp)) +
+    geom_point(aes(color=factor(cyl))) +
+    facet_grid(gear~.)
 }
 }
 \author{
