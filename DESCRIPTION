@@ -6,9 +6,13 @@ Date: 2013-01-16
 Author: Tyler Rinker & Ananda Mahto
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Description: Plotting functions associated with plotting to external files.
+Depends:
+    R (>= 3.0.0),
+    ggplot2
 License: GPL-2
 Collate:
     'merge_pdf.R'
     'mergePDF.R'
     'plotflow-package.R'
     'order_by.R'
+    'ggfaxt.R'

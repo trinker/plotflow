@@ -26,7 +26,7 @@
 #' 
 #' ## compare levels (data set looks the same though)
 #' dat$carb
-#' order_by(x = dat, carb, ~-hp + -mpg)$carb
+#' order_by(carb, ~-hp + -mpg, data = dat)$carb
 #' 
 #' library(ggplot2)
 #' ## Unordered bars
@@ -35,14 +35,14 @@
 #'     coord_flip()
 #' 
 #' ## Ordered bars
-#' ggplot(order_by(x = dat, carb, ~mpg), aes(x=carb, y=mpg)) + 
+#' ggplot(order_by(carb, ~mpg, dat), aes(x=carb, y=mpg)) + 
 #'     geom_bar(stat="identity") + 
 #'     coord_flip()
 #'     
-#' ## EXAMPLE 2 - with aggregation ##
-#' 
 #' ## Return just the vector with new levels
-#' order_by(x = dat, carb, ~-hp + -mpg, FALSE)
+#' order_by(carb, ~-hp + -mpg, dat, df=FALSE)
+#' 
+#' ## EXAMPLE 2 - with aggregation ##
 #' 
 #' mtcars2 <- order_by(gear, ~hp + -carb, mtcars, mean)
 #' 
@@ -56,9 +56,12 @@
 #'     geom_point(aes(color=factor(cyl))) + 
 #'     facet_grid(gear~.)
 #' }
-order_by <- function(fact, by, dat, FUN = NULL, df = TRUE){
+order_by <- function(fact, by, data, FUN = NULL, df = TRUE){
+	
     if(by[[1]] != "~")
         stop("Argument 'by' must be a one-sided formula.")
+
+    x <- data
 
     fact <- as.character(substitute(fact))
     # Make the formula into character and remove spaces
@@ -67,15 +70,15 @@ order_by <- function(fact, by, dat, FUN = NULL, df = TRUE){
     # If the first character is not + or -, add +
     if(!is.element(substring(formc, 1, 1), c("+", "-")))
         formc <- paste("+", formc, sep = "")
- 
+
     # Extract the variables from the formula
     vars <- unlist(strsplit(formc, "[\\+\\-]"))    
     vars <- vars[vars != ""] # Remove any extra "" terms
 
-    ## use f aggregating
+    ## use for aggregating
     if (!is.null(FUN)) {
         x <- eval(parse(text=paste0("aggregate(cbind(", paste(vars, collapse = ", "), ") ~", 
-            fact, ", data = dat, FUN = \"", substitute(FUN), "\")")))
+            fact, ", data = data, FUN = \"", substitute(FUN), "\")")))
     }
 
     # Build a list of arguments to pass to "order" function
@@ -98,11 +101,11 @@ order_by <- function(fact, by, dat, FUN = NULL, df = TRUE){
             }
         }
     }
-    dat[, fact] <- factor(dat[, fact], levels = x[do.call("order", calllist), fact])
+    data[, fact] <- factor(data[, fact], levels = x[do.call("order", calllist), fact])
     if (df) {
-        dat
+        data
     } else {
-        dat[, fact]
+        data[, fact]
     }
 }
 
