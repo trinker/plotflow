@@ -1,3 +1,4 @@
+export(fill_by_col)
 export(ggfaxt)
 export(merge_pdf)
 export(order_by)

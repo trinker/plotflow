@@ -9,7 +9,12 @@ Description: Plotting functions associated with plotting to external files.
 Depends:
     R (>= 3.0.0),
     ggplot2
-Suggests: GGally, ggsubplot, ggthemes, gplots, gridExtra
+Suggests:
+    GGally,
+    ggsubplot,
+    ggthemes,
+    gplots,
+    gridExtra
 License: GPL-2
 Collate:
     'merge_pdf.R'
@@ -17,3 +22,4 @@ Collate:
     'plotflow-package.R'
     'order_by.R'
     'ggfaxt.R'
+    'fill_by_col.R'
