@@ -11,4 +11,10 @@
 \examples{
 qcolor()
 }
+\author{
+  Earl F. Glynn
+}
+\references{
+  \url{http://research.stowers-institute.org/efg/R/Color/Chart/ColorChart.R}
+}
 
