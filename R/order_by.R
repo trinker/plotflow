@@ -5,7 +5,7 @@
 #' 
 #' @param fact The factor to be reordered (re-leveled).
 #' @param by A formula to order the factor by. 
-#' @param dat A \code{data.frame} object.
+#' @param data A \code{data.frame} object.
 #' @param FUN A function to compute the summary statistics which can be applied 
 #' to all data subsets.
 #' @param df logical.  If \code{TRUE} a dataframe is returned.  If \code{FALSE}
@@ -14,7 +14,7 @@
 #' @references The majority of this code is taken directly from Thomas Wutzler's
 #' blog post: \url{http://rwiki.sciviews.org/doku.php?id=tips\%3adata-frames\%3asort}
 #' @author Thomas Wutzler and Tyler Rinker <tyler.rinker@@gmail.com>.
-#' @keywords factor, order, sort, plot
+#' @keywords factor order sort plot
 #' @export 
 #' @examples
 #' \dontrun{

@@ -2,15 +2,21 @@
 #' 
 #' A ggplot2 wrapper for adding text to facets
 #' 
-#' @param  ggplot2.object a faceted ggplot2 object or an object returned from qfacet_text
-#' @param  x.coord a single x coordinate to be repeated or a vector of x coordinates equal to the number of facets
-#' @param  y.coord a single y coordinate to be repeated or a vector of y coordinates equal to the number of facets
+#' @param  ggplot2.object a faceted ggplot2 object or an object returned from 
+#' qfacet_text
+#' @param  x.coord a single x coordinate to be repeated or a vector of x 
+#' coordinates equal to the number of facets
+#' @param  y.coord a single y coordinate to be repeated or a vector of y 
+#' coordinates equal to the number of facets
 #' @param  labels a vector of labels to place on each facet
 #' @param \ldots additional arguments accepted by geom_text
-#' @return Returns a plot of class "gg" "ggplot" with annotations.  Also invisibly returns a list object of the class qfacet with the following items:
-#' \item{original } {the Original ggplot2 object}
-#' \item{new } {the new ggplot object}
-#' \item{dat } {the mini data frame created for the text}
+#' @return Returns a plot of class "gg" "ggplot" with annotations.  Also 
+#' invisibly returns a list object of the class qfacet with the following items:
+#' \itemize{
+#'   \item{original} {the Original ggplot2 object}
+#'   \item{new} {the new ggplot object}
+#'   \item{dat} {the mini data frame created for the text}
+#' }
 #' @seealso \code{\link[ggplot2]{geom_text}}
 #' @keywords ggplot2 facet text
 #' @export
@@ -63,6 +69,9 @@
 ggfaxt <-
 function(ggplot2.object, x.coord = NULL, y.coord = NULL, 
     labels = NULL, ...) {
+	
+	x <- y <- NULL
+	
     dat <- ggplot2.object$data
     look <- sapply(ggplot2.object$facet[1:2], as.character)
     empt <- function(x) {!identical(x, character(0))}

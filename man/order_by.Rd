@@ -9,7 +9,7 @@
 
   \item{by}{A formula to order the factor by.}
 
-  \item{dat}{A \code{data.frame} object.}
+  \item{data}{A \code{data.frame} object.}
 
   \item{FUN}{A function to compute the summary statistics
   which can be applied to all data subsets.}
@@ -74,8 +74,8 @@ ggplot(mtcars2, aes(mpg, hp)) +
   Wutzler's blog post:
   \url{http://rwiki.sciviews.org/doku.php?id=tips\%3adata-frames\%3asort}
 }
-\keyword{factor,}
-\keyword{order,}
+\keyword{factor}
+\keyword{order}
 \keyword{plot}
-\keyword{sort,}
+\keyword{sort}
 

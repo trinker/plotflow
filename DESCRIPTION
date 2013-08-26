@@ -14,7 +14,8 @@ Suggests:
     ggsubplot,
     ggthemes,
     gplots,
-    gridExtra
+    gridExtra,
+    reshape2
 License: GPL-2
 Collate:
     'merge_pdf.R'
@@ -23,3 +24,5 @@ Collate:
     'order_by.R'
     'ggfaxt.R'
     'fill_by_col.R'
+    'qcolors.R'
+    'qsymbols.R'

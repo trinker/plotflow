@@ -22,9 +22,10 @@
 \value{
   Returns a plot of class "gg" "ggplot" with annotations.
   Also invisibly returns a list object of the class qfacet
-  with the following items: \item{original } {the Original
-  ggplot2 object} \item{new } {the new ggplot object}
-  \item{dat } {the mini data frame created for the text}
+  with the following items: \itemize{ \item{original} {the
+  Original ggplot2 object} \item{new} {the new ggplot
+  object} \item{dat} {the mini data frame created for the
+  text} }
 }
 \description{
   A ggplot2 wrapper for adding text to facets
