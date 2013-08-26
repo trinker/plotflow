@@ -4,7 +4,7 @@
 #' 
 #' @export
 #' @examples
-#' qcolor
+#' qcolor()
 qcolor <- function() {
     SetTextContrastColor <- function(color)
     {

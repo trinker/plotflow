@@ -1,13 +1,13 @@
-\name{qsymbols}
-\alias{qsymbols}
+\name{qsymbol}
+\alias{qsymbol}
 \title{Plot Base R Symbols}
 \usage{
-  qsymbols()
+  qsymbol()
 }
 \description{
   Makes a plot of base R symbols.
 }
 \examples{
-qcolor
+qsymbol()
 }
 

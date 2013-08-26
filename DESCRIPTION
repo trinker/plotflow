@@ -25,4 +25,4 @@ Collate:
     'ggfaxt.R'
     'fill_by_col.R'
     'qcolors.R'
-    'qsymbols.R'
+    'qsymbol.R'

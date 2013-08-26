@@ -9,6 +9,6 @@
   \code{\link[grDevices]{colors}}.
 }
 \examples{
-qcolor
+qcolor()
 }
 
