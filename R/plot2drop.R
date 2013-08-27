@@ -12,12 +12,14 @@
 #' @param key The dropbox key.
 #' @param \ldots Other arguments passed to the plotting device in type.
 #' @details Plots to Drop Box and returns the URL to the plot (and optionally 
-#' opens the plot).
+#' opens the plot).  Code attemoted to be copied to the clipboard.
 #' @export
 #' @examples
+#' \dontrun{
 #' plot2drop("dfg")
 #' plot(1:10)
 #' dev.off()
+#' }
 plot2drop <- 
 function(name, type = "png", width = 400, height = 400, 
     open = TRUE, loc = getOption("dropbox_path"), 
@@ -37,7 +39,7 @@ function(name, type = "png", width = 400, height = 400,
     dev <- match.fun(type)
     dev(loc, width, height, ...)
     w <- "dev.off()"
-    x <- paste0("writeClipboard(\"https://dl.dropboxusercontent.com/u/", key,
+    x <- paste0("plotflow:::write_clip(\"https://dl.dropboxusercontent.com/u/", key,
         "/", what, "\")")
     y <- NULL
     if (open) {
@@ -45,6 +47,6 @@ function(name, type = "png", width = 400, height = 400,
           "/", what, "\")\n")
     } 
     z <- paste(w, x, y, sep="\n")
-    writeClipboard(z)
+    write_clip(z)
     message(z)
 }

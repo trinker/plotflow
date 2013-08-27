@@ -33,11 +33,14 @@
 }
 \details{
   Plots to Drop Box and returns the URL to the plot (and
-  optionally opens the plot).
+  optionally opens the plot).  Code attemoted to be copied
+  to the clipboard.
 }
 \examples{
+\dontrun{
 plot2drop("dfg")
 plot(1:10)
 dev.off()
+}
 }
 
