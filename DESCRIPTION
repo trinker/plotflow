@@ -26,3 +26,4 @@ Collate:
     'fill_by_col.R'
     'qcolors.R'
     'qsymbol.R'
+    'plot2drop.R'
