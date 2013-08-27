@@ -19,13 +19,13 @@ Suggests:
     reshape2
 License: GPL-2
 Collate:
+    'fill_by_col.R'
+    'ggfaxt.R'
     'merge_pdf.R'
     'mergePDF.R'
-    'plotflow-package.R'
     'order_by.R'
-    'ggfaxt.R'
-    'fill_by_col.R'
+    'plot2drop.R'
+    'plotflow-package.R'
     'qcolors.R'
     'qsymbol.R'
-    'plot2drop.R'
-    'urils.R'
+    'utils.R'
