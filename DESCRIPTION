@@ -15,6 +15,7 @@ Suggests:
     ggthemes,
     gplots,
     gridExtra,
+    plotrix,
     reshape2
 License: GPL-2
 Collate:
