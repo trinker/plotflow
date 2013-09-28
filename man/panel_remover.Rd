@@ -25,13 +25,15 @@ a <- ggplot(mtcars, aes(mpg, hp)) +
   geom_point() +
   facet_grid(cyl~gear)
 
+panel_remover(a)
 panel_remover(a, FALSE)
 }
 \author{
-  Amine Gassem and Tyler Rinker<tyler.rinker@gmail.com>
+  Roland (stackoverflow.com) and Tyler
+  Rinker<tyler.rinker@gmail.com>
 }
 \references{
-  \url{http://stackoverflow.com/a/19064688/1000343}
+  \url{http://stackoverflow.com/a/19064621/1000343}
 }
 \keyword{strip.background}
 
