@@ -8,13 +8,13 @@ Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Description: Plotting functions not found in other plotting packages.
 Depends:
     R (>= 3.0.0),
-    ggplot2
+    ggplot2,
+    gridExtra
 Suggests:
     GGally,
     ggsubplot,
     ggthemes,
     gplots,
-    gridExtra,
     plotrix,
     reshape2
 License: GPL-2
