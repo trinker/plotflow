@@ -29,3 +29,5 @@ Collate:
     'qcolors.R'
     'qsymbol.R'
     'utils.R'
+    'panel_remover.R'
+    'theme_basic.R'
