@@ -13,6 +13,7 @@
 #' @keywords strip.background
 #' @author Roland (stackoverflow.com) and Tyler Rinker<tyler.rinker@@gmail.com>
 #' @export
+#' @import gridExtra
 #' @importFrom grid grob
 #' @importFrom ggplot2 ggplotGrob
 #' @examples
