@@ -10,10 +10,10 @@
 #' @seealso \code{\link[ggplot2]{theme}}
 #' importFrom ggplot2 theme_bw theme element_blank
 #' @examples
-#' ggplot(mtcars, aes(factor(cyl))) + geom_bar() + theme_qdap()
-#' ggplot(mtcars, aes(factor(cyl))) + geom_bar() + theme_qdap(x = TRUE)
-#' ggplot(mtcars, aes(factor(cyl))) + geom_bar() + theme_qdap(y = TRUE)
-#' ggplot(mtcars, aes(factor(cyl))) + geom_bar() + theme_qdap(x = TRUE, y = TRUE)
+#' ggplot(mtcars, aes(factor(cyl))) + geom_bar() + theme_basic()
+#' ggplot(mtcars, aes(factor(cyl))) + geom_bar() + theme_basic(x = TRUE)
+#' ggplot(mtcars, aes(factor(cyl))) + geom_bar() + theme_basic(y = TRUE)
+#' ggplot(mtcars, aes(factor(cyl))) + geom_bar() + theme_basic(x = TRUE, y = TRUE)
 theme_basic <- function(x = FALSE, y = FALSE) {
     a <- theme_bw() 
     if (!x && !y) {
