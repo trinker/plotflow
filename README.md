@@ -1,6 +1,8 @@
 plotflow
 ========
 
+[![Build Status](https://travis-ci.org/trinker/plotflow.png?branch=master)](https://travis-ci.org/trinker/plotflow)
+
 A group of tools to speed up work flow associated with plotting tasks.
 
 ## Installation
