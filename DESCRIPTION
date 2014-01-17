@@ -12,22 +12,10 @@ Depends:
     gridExtra
 Suggests:
     GGally,
+    ggdendro,
     ggsubplot,
     ggthemes,
     gplots,
     plotrix,
     reshape2
 License: GPL-2
-Collate:
-    'fill_by_col.R'
-    'ggfaxt.R'
-    'merge_pdf.R'
-    'mergePDF.R'
-    'order_by.R'
-    'plot2drop.R'
-    'plotflow-package.R'
-    'qcolors.R'
-    'qsymbol.R'
-    'utils.R'
-    'panel_remover.R'
-    'theme_basic.R'

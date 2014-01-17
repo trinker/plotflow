@@ -2,9 +2,8 @@
 \alias{plot2drop}
 \title{Plot to Drop Box}
 \usage{
-  plot2drop(name, type = "png", width = 400, height = 400,
-    open = TRUE, loc = getOption("dropbox_path"),
-    key = getOption("dropbox_key"), ...)
+plot2drop(name, type = "png", width = 400, height = 400, open = TRUE,
+  loc = getOption("dropbox_path"), key = getOption("dropbox_key"), ...)
 }
 \arguments{
   \item{name}{The name of the plot (no file extension
@@ -28,13 +27,12 @@
   device in type.}
 }
 \description{
-  A wrapper to plotting device for easy plotting to Drop
-  Box.
+A wrapper to plotting device for easy plotting to Drop Box.
 }
 \details{
-  Plots to Drop Box and returns the URL to the plot (and
-  optionally opens the plot).  Code attemoted to be copied
-  to the clipboard.
+Plots to Drop Box and returns the URL to the plot (and
+optionally opens the plot).  Code attemoted to be copied to
+the clipboard.
 }
 \examples{
 \dontrun{

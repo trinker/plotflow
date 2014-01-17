@@ -1,0 +1,22 @@
+language: java
+
+before_install:
+  - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
+  - chmod 755 ./travis-tool.sh
+  - ./travis-tool.sh bootstrap
+install:
+  - sh -e /etc/init.d/xvfb start
+  - sudo R CMD javareconf
+  - ./travis-tool.sh install_github hadley/devtools
+  - ./travis-tool.sh install_deps
+  - sudo apt-get install ffmpeg
+script: ./travis-tool.sh run_tests
+notifications:
+  email:
+    on_success: change
+    on_failure: change
+
+env:
+  global:
+    - R_BUILD_ARGS="--resave-data=best" 
+    - DISPLAY=:99.0

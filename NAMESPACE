@@ -1,5 +1,6 @@
 export(fill_by_col)
 export(ggfaxt)
+export(ggplot_col)
 export(merge_pdf)
 export(order_by)
 export(panel_remover)

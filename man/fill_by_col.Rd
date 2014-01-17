@@ -2,7 +2,7 @@
 \alias{fill_by_col}
 \title{Fill facet_wrap By Column}
 \usage{
-  fill_by_col(dataframe, fact, ncol = 2)
+fill_by_col(dataframe, fact, ncol = 2)
 }
 \arguments{
   \item{dataframe}{A data.frame object.}
@@ -12,7 +12,7 @@
   \item{ncol}{Number of columns to make the plot}
 }
 \description{
-  Fill ggplot2's facet_wrap by column rather than row.
+Fill ggplot2's facet_wrap by column rather than row.
 }
 \examples{
 library(ggplot2); library(reshape2)

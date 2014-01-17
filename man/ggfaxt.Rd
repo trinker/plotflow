@@ -2,8 +2,7 @@
 \alias{ggfaxt}
 \title{Add Text to a Faceted ggplot2 Plot}
 \usage{
-  ggfaxt(ggplot2.object, x.coord = NULL, y.coord = NULL,
-    labels = NULL, ...)
+ggfaxt(ggplot2.object, x.coord = NULL, y.coord = NULL, labels = NULL, ...)
 }
 \arguments{
   \item{ggplot2.object}{a faceted ggplot2 object or an
@@ -20,15 +19,14 @@
   \item{\ldots}{additional arguments accepted by geom_text}
 }
 \value{
-  Returns a plot of class "gg" "ggplot" with annotations.
-  Also invisibly returns a list object of the class qfacet
-  with the following items: \itemize{ \item{original} {the
-  Original ggplot2 object} \item{new} {the new ggplot
-  object} \item{dat} {the mini data frame created for the
-  text} }
+Returns a plot of class "gg" "ggplot" with annotations.
+Also invisibly returns a list object of the class qfacet
+with the following items: \itemize{ \item{original} {the
+Original ggplot2 object} \item{new} {the new ggplot object}
+\item{dat} {the mini data frame created for the text} }
 }
 \description{
-  A ggplot2 wrapper for adding text to facets
+A ggplot2 wrapper for adding text to facets
 }
 \examples{
 #alter mtcars to make some variables factors
@@ -77,7 +75,7 @@ ggfaxt(ggplot2.object = z$new, x.coor = 900, y.coor = 10,
 mtcars <- datasets::mtcars
 }
 \seealso{
-  \code{\link[ggplot2]{geom_text}}
+\code{\link[ggplot2]{geom_text}}
 }
 \keyword{facet}
 \keyword{ggplot2}

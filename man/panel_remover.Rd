@@ -2,7 +2,7 @@
 \alias{panel_remover}
 \title{Remove Specific strip.background}
 \usage{
-  panel_remover(ggplot_obj, y = TRUE)
+panel_remover(ggplot_obj, y = TRUE)
 }
 \arguments{
   \item{ggplot_obj}{A ggplot2 object with strip.background
@@ -13,12 +13,12 @@
   strip.background is removed.}
 }
 \value{
-  Returns a ggplot2 object with specific strip.background
-  removed.
+Returns a ggplot2 object with specific strip.background
+removed.
 }
 \description{
-  Remove a specific strip.background from a ggplot2
-  \code{\link[ggplot2]{facet_grid}} object.
+Remove a specific strip.background from a ggplot2
+\code{\link[ggplot2]{facet_grid}} object.
 }
 \examples{
 a <- ggplot(mtcars, aes(mpg, hp)) +
@@ -29,11 +29,11 @@ panel_remover(a)
 panel_remover(a, FALSE)
 }
 \author{
-  Roland (stackoverflow.com) and Tyler
-  Rinker<tyler.rinker@gmail.com>
+Roland (stackoverflow.com) and Tyler
+Rinker<tyler.rinker@gmail.com>
 }
 \references{
-  \url{http://stackoverflow.com/a/19064621/1000343}
+\url{http://stackoverflow.com/a/19064621/1000343}
 }
 \keyword{strip.background}
 

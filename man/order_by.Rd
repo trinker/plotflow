@@ -2,7 +2,7 @@
 \alias{order_by}
 \title{Order a Factor by Numeric Variable(s)}
 \usage{
-  order_by(fact, by, data, FUN = NULL, df = TRUE)
+order_by(fact, by, data, FUN = NULL, df = TRUE)
 }
 \arguments{
   \item{fact}{The factor to be reordered (re-leveled).}
@@ -18,12 +18,12 @@
   returned.  If \code{FALSE} a factor vector is returned.}
 }
 \value{
-  Returns a re-ordered (re-leveled) dataframe, factor
-  vector, or levels.
+Returns a re-ordered (re-leveled) dataframe, factor vector,
+or levels.
 }
 \description{
-  Create a new dataframe with a factor reordered
-  (re-leveled) by numeric variable(s).
+Create a new dataframe with a factor reordered (re-leveled)
+by numeric variable(s).
 }
 \examples{
 \dontrun{
@@ -67,12 +67,12 @@ ggplot(mtcars2, aes(mpg, hp)) +
 }
 }
 \author{
-  Thomas Wutzler and Tyler Rinker <tyler.rinker@gmail.com>.
+Thomas Wutzler and Tyler Rinker <tyler.rinker@gmail.com>.
 }
 \references{
-  The majority of this code is taken directly from Thomas
-  Wutzler's blog post:
-  \url{http://rwiki.sciviews.org/doku.php?id=tips\%3adata-frames\%3asort}
+The majority of this code is taken directly from Thomas
+Wutzler's blog post:
+\url{http://rwiki.sciviews.org/doku.php?id=tips\%3adata-frames\%3asort}
 }
 \keyword{factor}
 \keyword{order}

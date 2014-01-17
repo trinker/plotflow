@@ -111,4 +111,12 @@ order_by <- function(fact, by, data, FUN = NULL, df = TRUE){
 
 
 
+by_self <- function(x, rev = FALSE) {
+    y <- names(sort(table(x)))
+    if (rev) {
+        y <- rev(y)
+    }
+    factor(x, levels=y)
+} 
+
 

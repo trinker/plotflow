@@ -2,8 +2,7 @@
 \alias{merge_pdf}
 \title{Merge Differnt Sized Plots}
 \usage{
-  merge_pdf(n.plots, file, widths = 8, heights = 8,
-    n.lines = 1)
+merge_pdf(n.plots, file, widths = 8, heights = 8, n.lines = 1)
 }
 \arguments{
   \item{n.plots}{The number of plots to be combined.}
@@ -23,14 +22,14 @@
   Default is 1 line each.}
 }
 \value{
-  Returns a single combined plot of various sizes.
+Returns a single combined plot of various sizes.
 }
 \description{
-  Allows for merging of different sized R plots.
+Allows for merging of different sized R plots.
 }
 \note{
-  To use with ggplot the plotting sequance must be wrapped
-  with \code{plot()}.
+To use with ggplot the plotting sequance must be wrapped
+with \code{plot()}.
 }
 \examples{
 \dontrun{

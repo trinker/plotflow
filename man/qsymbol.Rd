@@ -2,10 +2,10 @@
 \alias{qsymbol}
 \title{Plot Base R Symbols}
 \usage{
-  qsymbol()
+qsymbol()
 }
 \description{
-  Makes a plot of base R symbols.
+Makes a plot of base R symbols.
 }
 \examples{
 qsymbol()
