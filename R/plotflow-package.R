@@ -1,6 +1,6 @@
 #' plotflow: Tools to speed up workflow associated with plotting
 #'
-#' Plotting functions associated with plotting to external files.
+#' Plotting functions designed to increase efficiency around plotting.
 #' 
 #' @docType package
 #' @name plotflow

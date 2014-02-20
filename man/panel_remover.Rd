@@ -13,7 +13,8 @@ panel_remover(ggplot_obj, y = TRUE)
   strip.background is removed.}
 }
 \value{
-Returns a ggplot2 object with specific strip.background
+Returns a ggplot2 object with specific
+\href{http://docs.ggplot2.org/current/theme.html}{strip.background}.
 removed.
 }
 \description{
@@ -34,6 +35,9 @@ Rinker<tyler.rinker@gmail.com>
 }
 \references{
 \url{http://stackoverflow.com/a/19064621/1000343}
+}
+\seealso{
+\code{\link[ggplot2]{theme}}
 }
 \keyword{strip.background}
 

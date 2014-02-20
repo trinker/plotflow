@@ -26,7 +26,7 @@ Original ggplot2 object} \item{new} {the new ggplot object}
 \item{dat} {the mini data frame created for the text} }
 }
 \description{
-A ggplot2 wrapper for adding text to facets
+A ggplot2 wrapper for adding text to facets.
 }
 \examples{
 #alter mtcars to make some variables factors

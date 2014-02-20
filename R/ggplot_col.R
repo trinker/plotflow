@@ -1,12 +1,13 @@
-#' Global Set og ggplot2 Colors
+#' Globally Set ggplot2 Colors
 #' 
 #' Globally set the color and fill of ggplot2.
 #' 
 #' @param col A single color character string.
 #' @param fill logical.  If \code{TRUE} fill is globally altered.
 #' @param colour logical.  If \code{TRUE} colour is globally altered.
-#' @param reset logical.  If colour and fill are reset to black before applyin new color.
-#' @references http://stackoverflow.com/a/21175042/1000343
+#' @param reset logical.  If colour and fill are reset to black before applying 
+#' new color.
+#' @references \url{http://stackoverflow.com/a/21175042/1000343}
 #' @export
 #' @seealso \code{\link[ggplot2]{update_geom_defaults}}
 #' @examples

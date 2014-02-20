@@ -8,23 +8,19 @@
 #' @examples
 #' qcolor()
 qcolor <- function() {
-    SetTextContrastColor <- function(color)
-    {
-      ifelse( mean(col2rgb(color)) > 127, "black", "white")
+    SetTextContrastColor <- function(color){
+      ifelse(mean(col2rgb(color)) > 127, "black", "white")
     }
-    # Define this array of text contrast colors that correponds to each
-    # member of the colors() array.
+
     TextContrastColor <- unlist( lapply(colors(), SetTextContrastColor) )
-    # 1a. Plot matrix of R colors, in index order, 25 per row.
-    # This example plots each row of rectangles one at a time.
-    colCount <- 25 # number per row
+
+    colCount <- 25 
     rowCount <- 27
     plot( c(1,colCount), c(0,rowCount), type="n", ylab="", xlab="",
       axes=FALSE, ylim=c(rowCount,0))
     title("R colors")
     
-    for (j in 0:(rowCount-1))
-    {
+    for (j in 0:(rowCount-1)) {
       base <- j*colCount
       remaining <- length(colors()) - base
       RowSize <- ifelse(remaining < colCount, remaining, colCount)

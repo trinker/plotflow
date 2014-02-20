@@ -8,7 +8,7 @@
 #' \code{\link[ggplot2]{theme_bw}} instead.
 #' @export
 #' @seealso \code{\link[ggplot2]{theme}}
-#' importFrom ggplot2 theme_bw theme element_blank
+#' @importFrom ggplot2 theme_bw theme element_blank
 #' @examples
 #' ggplot(mtcars, aes(factor(cyl))) + geom_bar() + theme_basic()
 #' ggplot(mtcars, aes(factor(cyl))) + geom_bar() + theme_basic(x = TRUE)

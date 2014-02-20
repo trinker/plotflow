@@ -25,7 +25,6 @@ ggplot(mtcars, aes(factor(cyl))) + geom_bar() + theme_basic(y = TRUE)
 ggplot(mtcars, aes(factor(cyl))) + geom_bar() + theme_basic(x = TRUE, y = TRUE)
 }
 \seealso{
-\code{\link[ggplot2]{theme}} importFrom ggplot2 theme_bw
-theme element_blank
+\code{\link[ggplot2]{theme}}
 }
 

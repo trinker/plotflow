@@ -6,8 +6,9 @@
 #' @param ggplot_obj A ggplot2 object with strip.background (produced from 
 #' \code{\link[ggplot2]{facet_grid}}).
 #' @param y logical.  If \code{TRUE} the y axis strip.background is removed.  
-#' If \code{FALSE} the x axis strip.background  is removed.
-#' @return Returns a ggplot2 object with specific strip.background 
+#' If \code{FALSE} the x axis strip.background is removed.
+#' @return Returns a ggplot2 object with specific 
+#' \href{http://docs.ggplot2.org/current/theme.html}{strip.background}.
 #' removed.
 #' @references \url{http://stackoverflow.com/a/19064621/1000343}
 #' @keywords strip.background
@@ -16,6 +17,7 @@
 #' @import gridExtra
 #' @importFrom grid grob
 #' @importFrom ggplot2 ggplotGrob
+#' @seealso \code{\link[ggplot2]{theme}}
 #' @examples
 #' a <- ggplot(mtcars, aes(mpg, hp)) +
 #'   geom_point() +

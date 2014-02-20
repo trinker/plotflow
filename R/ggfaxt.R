@@ -1,6 +1,6 @@
 #' Add Text to a Faceted ggplot2 Plot
 #' 
-#' A ggplot2 wrapper for adding text to facets
+#' A ggplot2 wrapper for adding text to facets.
 #' 
 #' @param  ggplot2.object a faceted ggplot2 object or an object returned from 
 #' qfacet_text

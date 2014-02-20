@@ -21,9 +21,8 @@
 #' dev.off()
 #' }
 plot2drop <- 
-function(name, type = "png", width = 400, height = 400, 
-    open = TRUE, loc = getOption("dropbox_path"), 
-    key = getOption("dropbox_key"), ...){
+function(name, type = "png", width = 400, height = 400, open = TRUE, 
+	loc = getOption("dropbox_path"), key = getOption("dropbox_key"), ...){
     name <- as.character(substitute(name))
     if (missing(name)) {
         stop("must specify a name")
