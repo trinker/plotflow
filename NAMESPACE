@@ -1,6 +1,8 @@
 export(fill_by_column)
 export(ggalign)
+export(ggcook)
 export(ggfaxt)
+export(gghelp)
 export(ggplot_col)
 export(label_breaks)
 export(label_rename_margin)
