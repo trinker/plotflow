@@ -1,8 +1,8 @@
-\name{order_by}
-\alias{order_by}
+\name{reorder_by}
+\alias{reorder_by}
 \title{Order a Factor by Numeric Variable(s)}
 \usage{
-order_by(fact, by, data, FUN = NULL, df = TRUE)
+reorder_by(fact, by, data, FUN = NULL, df = TRUE)
 }
 \arguments{
   \item{fact}{The factor to be reordered (re-leveled).}
@@ -35,7 +35,7 @@ dat$carb <- factor(dat$carb)
 
 ## compare levels (data set looks the same though)
 dat$carb
-order_by(carb, ~-hp + -mpg, data = dat)$carb
+reorder_by(carb, ~-hp + -mpg, data = dat)$carb
 
 library(ggplot2)
 ## Unordered bars
@@ -44,16 +44,16 @@ ggplot(dat, aes(x=carb, y=mpg)) +
     coord_flip()
 
 ## Ordered bars
-ggplot(order_by(carb, ~mpg, dat), aes(x=carb, y=mpg)) +
+ggplot(reorder_by(carb, ~mpg, dat), aes(x=carb, y=mpg)) +
     geom_bar(stat="identity") +
     coord_flip()
 
 ## Return just the vector with new levels
-order_by(carb, ~-hp + -mpg, dat, df=FALSE)
+reorder_by(carb, ~-hp + -mpg, dat, df=FALSE)
 
 ## EXAMPLE 2 - with aggregation ##
 
-mtcars2 <- order_by(gear, ~hp + -carb, mtcars, mean)
+mtcars2 <- reorder_by(gear, ~hp + -carb, mtcars, mean)
 
 ## Without re-leveling gear
 ggplot(mtcars, aes(mpg, hp)) +

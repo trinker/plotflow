@@ -28,6 +28,8 @@
 splot <- function(file = "myPlot.png", width = 6.93, height = 6.93, 
 	cairo = FALSE, reduce.margins = TRUE, bg = "white", ...){
 
+	req <- NULL
+	
     if (reduce.margins) {
         opar <- par()[["mar"]]
         par(mar=c(5,3,2,2)+0.1)
@@ -49,7 +51,7 @@ splot <- function(file = "myPlot.png", width = 6.93, height = 6.93,
     )
     if(cairo && ext == "png") gd[["con"]] <- 1
     if (cairo && ext %in% c("pdf", "ps", "svg", "png")) {
-        req <- require(cairoDevice)
+#        req <- require(cairoDevice)
         if (!req) {
             warning("carioDevice package not installed, `cario` ignored")
         } else {

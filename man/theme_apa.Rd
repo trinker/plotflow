@@ -1,0 +1,44 @@
+\name{theme_apa}
+\alias{theme_apa}
+\title{ggplot2 Theme for APA Publications}
+\usage{
+theme_apa(plot.box = FALSE)
+}
+\arguments{
+  \item{plot.box}{logical.  If \code{TRUE} a full box
+  surrounds the plot area.  If \code{FALSE} only the x and
+  y axis are shown.}
+}
+\description{
+A ggplot2 theme with no background and Times New Roman
+font.
+}
+\examples{
+\dontrun{
+ggplot(reorder_by(cyl, ~-cyl , mtcars, length), aes(x=as.factor(cyl))) +
+    geom_bar()  +
+    theme_apa() +
+    y0(cushion(as.factor(mtcars$cyl))) +
+    xlab("Cylinders") +
+    ylab("Total")
+
+ggplot(reorder_by(cyl, ~-cyl , mtcars, length), aes(x=as.factor(cyl))) +
+    geom_bar()  +
+    theme_apa(plot.box=T) +
+    y0(cushion(as.factor(mtcars$cyl))) +
+    xlab("Cylinders") +
+    ylab("Total")
+
+ggplot(reorder_by(cyl, ~-cyl , mtcars, length), aes(x=as.factor(cyl))) +
+    geom_bar()  +
+    theme_basic() +
+    theme_apa() +
+    y0(cushion(as.factor(mtcars$cyl))) +
+    xlab("Cylinders") +
+    ylab("Total")
+}
+}
+\seealso{
+\code{\link[ggplot2]{theme}}
+}
+

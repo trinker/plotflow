@@ -26,7 +26,7 @@
 #' 
 #' ## compare levels (data set looks the same though)
 #' dat$carb
-#' order_by(carb, ~-hp + -mpg, data = dat)$carb
+#' reorder_by(carb, ~-hp + -mpg, data = dat)$carb
 #' 
 #' library(ggplot2)
 #' ## Unordered bars
@@ -35,16 +35,16 @@
 #'     coord_flip()
 #' 
 #' ## Ordered bars
-#' ggplot(order_by(carb, ~mpg, dat), aes(x=carb, y=mpg)) + 
+#' ggplot(reorder_by(carb, ~mpg, dat), aes(x=carb, y=mpg)) + 
 #'     geom_bar(stat="identity") + 
 #'     coord_flip()
 #'     
 #' ## Return just the vector with new levels
-#' order_by(carb, ~-hp + -mpg, dat, df=FALSE)
+#' reorder_by(carb, ~-hp + -mpg, dat, df=FALSE)
 #' 
 #' ## EXAMPLE 2 - with aggregation ##
 #' 
-#' mtcars2 <- order_by(gear, ~hp + -carb, mtcars, mean)
+#' mtcars2 <- reorder_by(gear, ~hp + -carb, mtcars, mean)
 #' 
 #' ## Without re-leveling gear
 #' ggplot(mtcars, aes(mpg, hp)) + 
@@ -56,12 +56,30 @@
 #'     geom_point(aes(color=factor(cyl))) + 
 #'     facet_grid(gear~.)
 #' }
-order_by <- function(fact, by, data, FUN = NULL, df = TRUE){
+reorder_by <- function(fact, by, data, FUN = NULL, df = TRUE){
 	
-    if(by[[1]] != "~")
+    if(by[[1]] != "~") {
         stop("Argument 'by' must be a one-sided formula.")
+    }
 
     x <- data
+
+    form1 <- as.character(substitute(fact))
+    form2 <- as.character(by[[2]])
+    check1 <- c(length(form2) == 1 && form1 == form2)
+    check2 <- c(length(form2) == 2 && form1 == form2[2] && form2[1] == "-")
+    
+    if(check1 | check2) {
+        if (is.null(FUN)) {
+            warning("FUN not provided: `length` assumed")
+            FUN <- length
+        }
+        ord <- match.fun(ifelse(check2, "rev", "c"))  
+        lvls <- ord(sort(tapply(data[, form1], data[, form1], FUN = FUN)))
+        data[, form1] <- factor(data[, form1], levels = names(lvls))
+        return(data)
+    }
+
 
     fact <- as.character(substitute(fact))
     # Make the formula into character and remove spaces

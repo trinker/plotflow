@@ -2,7 +2,7 @@
 \alias{theme_basic}
 \title{ggplot2 Theme with No Background or Gridlines.}
 \usage{
-theme_basic(x = FALSE, y = FALSE)
+theme_basic(x = FALSE, y = FALSE, plot.box = FALSE)
 }
 \arguments{
   \item{x}{logical.  If \code{TRUE} vertical gridlines are
@@ -10,6 +10,10 @@ theme_basic(x = FALSE, y = FALSE)
 
   \item{y}{logical.  If \code{TRUE} horizontal gridlines
   are added.}
+
+  \item{plot.box}{logical.  If \code{TRUE} a full box
+  surrounds the plot area.  If \code{FALSE} only the x and
+  y axis are shown.}
 }
 \description{
 A ggplot2 theme with no background and no gridlines.
