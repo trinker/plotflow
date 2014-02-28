@@ -19,11 +19,11 @@ qgrid(xmaj = "grey94", xmin = "grey94", ymaj = "grey94",
   \code{NULL} to remove.}
 
   \item{x}{A colour choice.  Sets both panel.grid.major.x
-  and panel.minor.x.  Overides \code{xmin} and \code{xmax}.
+  and panel.minor.x. Overides \code{xmin} and \code{xmax}.
   Use \code{NULL} to remove.}
 
   \item{y}{A colour choice.  Sets both panel.grid.major.y
-  and panel.minor.y.  Overides \code{ymin} and \code{ymax}.
+  and panel.minor.y. Overides \code{ymin} and \code{ymax}.
   Use \code{NULL} to remove.}
 }
 \description{

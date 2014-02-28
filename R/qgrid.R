@@ -2,12 +2,16 @@
 #' 
 #' Set ggplot2's panel.grid quickly.
 #' 
-#' @param xmaj A colour choice for panel.grid.major.x.  Use \code{NULL} to remove.
+#' @param xmaj A colour choice for panel.grid.major.x.  Use \code{NULL} to 
+#' remove.
 #' @param xmin A colour choice for panel.minor.x.  Use \code{NULL} to remove.
-#' @param ymaj A colour choice for panel.grid.major.y.  Use \code{NULL} to remove.
+#' @param ymaj A colour choice for panel.grid.major.y.  Use \code{NULL} to 
+#' remove.
 #' @param ymin A colour choice for panel.minor.y.  Use \code{NULL} to remove.
-#' @param x A colour choice.  Sets both panel.grid.major.x and panel.minor.x.  Overides \code{xmin} and \code{xmax}.  Use \code{NULL} to remove.
-#' @param y A colour choice.  Sets both panel.grid.major.y and panel.minor.y.  Overides \code{ymin} and \code{ymax}.  Use \code{NULL} to remove.
+#' @param x A colour choice.  Sets both panel.grid.major.x and panel.minor.x.  
+#' Overides \code{xmin} and \code{xmax}.  Use \code{NULL} to remove.
+#' @param y A colour choice.  Sets both panel.grid.major.y and panel.minor.y.  
+#' Overides \code{ymin} and \code{ymax}.  Use \code{NULL} to remove.
 #' @importFrom ggplot2 theme element_blank element_line
 #' @keywords gridelines
 #' @export
