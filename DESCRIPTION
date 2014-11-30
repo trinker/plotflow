@@ -10,6 +10,8 @@ Depends:
     R (>= 3.0.0),
     ggplot2,
     gridExtra
+Imports:
+    grid
 Suggests:
     GGally,
     ggdendro,
