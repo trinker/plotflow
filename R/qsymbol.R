@@ -21,14 +21,15 @@ qsymbol <- function(ggplot2 = TRUE){
     } else {
         dat <- data.frame(y = rep(5:1, , each = 5), x = rep(1:5, 5), symb=1:25)
 
-        ggplot(dat, aes(x=x, y=y)) + 
-            geom_text(aes(label=symb), size=3.25, vjust=2.25) + 
-            geom_point(aes(shape = symb), size = 5,  
-            colour = "red", fill = "black") + 
-            scale_shape_identity() + ylab("") + xlab("") +
-            theme(axis.text=element_blank(),
-                axis.ticks=element_blank()) + 
-            ggtitle("ggplot2 Symbols (shape)")
+        ggplot2::ggplot(dat, ggplot2::aes(x=x, y=y)) + 
+            ggplot2::geom_text(ggplot2::aes(label=symb), size=3.25, vjust=2.25) + 
+            ggplot2::geom_point(ggplot2::aes(shape = symb), size = 5,  
+                colour = "red", fill = "black") + 
+            ggplot2::scale_shape_identity() + 
+            ggplot2::ylab("") + ggplot2::xlab("") +
+            ggplot2::theme(axis.text=ggplot2::element_blank(),
+                axis.ticks=ggplot2::element_blank()) + 
+            ggplot2::ggtitle("ggplot2 Symbols (shape)")
     }
 
 }

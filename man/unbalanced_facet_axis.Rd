@@ -13,10 +13,10 @@ object.}
 \item{position}{Either \code{"up"} (match unbalanced facet's postition) or
 \code{"down"} (along bottom most axis).}
 
-\item{vp}{logical.  If \code{TRUE} a viewport is used.}
-
-\item{viewpage}{logical.  If \code{TRUE} \code{\link[grid]{grid.newpage}} is
+\item{newpage}{logical.  If \code{TRUE} \code{\link[grid]{grid.newpage}} is
 used.}
+
+\item{vp}{logical.  If \code{TRUE} a viewport is used.}
 }
 \description{
 Adds the tick marks to an unblanced grouping of

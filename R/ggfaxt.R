@@ -128,8 +128,8 @@ function(ggplot2.object, x.coord = NULL, y.coord = NULL,
             ggplot2.object <- ggplot2.object$original
         }
     }
-    p <- ggplot2.object + geom_text(aes(x, y, label=labs, group=NULL), 
-        data=text.df, ...)
+    p <- ggplot2.object + ggplot2::geom_text(ggplot2::aes_string('x', 'y', 
+        label='labs', group=NULL), data=text.df, ...)
     print(p)
     v <- list(original = ggplot2.object, new = p, dat = text.df)
     class(v) <- "qfacet"

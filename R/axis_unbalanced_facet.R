@@ -7,7 +7,7 @@
 #' object. 
 #' @param position Either \code{"up"} (match unbalanced facet's postition) or 
 #' \code{"down"} (along bottom most axis).
-#' @param viewpage logical.  If \code{TRUE} \code{\link[grid]{grid.newpage}} is
+#' @param newpage logical.  If \code{TRUE} \code{\link[grid]{grid.newpage}} is
 #' used.
 #' @param vp logical.  If \code{TRUE} a viewport is used.
 #' @author \href{http://stackoverflow.com/users/1320535/julius}{Julius} 
@@ -32,7 +32,7 @@ unbalanced_facet_axis <- function(ggplot_obj, position = c("up", "down"),
     newpage = is.null(vp), vp = NULL) {
 
     ggplot2:::set_last_plot(ggplot_obj)
-    if(newpage) grid:::grid.newpage()
+    if(newpage) grid::grid.newpage()
     position <- match.arg(position)
     p <- ggplot2::ggplot_build(ggplot_obj)
     gtable <- ggplot2::ggplot_gtable(p)
@@ -70,12 +70,12 @@ unbalanced_facet_axis <- function(ggplot_obj, position = c("up", "down"),
         grid::grid.draw(gtable)
     } else {
         if (is.character(vp)) {
-            grid::gseekViewport(vp)
+            grid::seekViewport(vp)
         } else {
-            grid::gpushViewport(vp)
+            grid::pushViewport(vp)
         }
         grid::grid.draw(gtable)
-        grid::gupViewport()
+        grid::upViewport()
     }
     invisible(p)
 }

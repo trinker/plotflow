@@ -20,18 +20,18 @@ ggplot_col <- function(col = "black", fill = TRUE, colour = TRUE, reset = TRUE) 
     geoms <- gsub("geom_", "", params)
 
     if (reset) {
-        invisible(lapply(geoms, update_geom_defaults, list(fill = "black", 
+        invisible(lapply(geoms, ggplot2::update_geom_defaults, list(fill = "black", 
         	colour = "black")))
     }
     if (colour && !fill) {
-        invisible(lapply(geoms, update_geom_defaults, list(colour = col)))
+        invisible(lapply(geoms, ggplot2::update_geom_defaults, list(colour = col)))
     } else {
         if (colour && fill) {
-            invisible(lapply(geoms, update_geom_defaults, list(fill = col, 
+            invisible(lapply(geoms, ggplot2::update_geom_defaults, list(fill = col, 
             	colour = col)))
         } else {
             if (!colour && fill) {
-                invisible(lapply(geoms, update_geom_defaults, list(fill = col)))
+                invisible(lapply(geoms, ggplot2::update_geom_defaults, list(fill = col)))
             } else {
                 stop("better rethink why you're using this function")
             }

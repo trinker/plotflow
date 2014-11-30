@@ -94,7 +94,7 @@ splot <- function(file = "myPlot.png", width = 6.93, height = 6.93,
 lsplot <- function(...) {
 
     suppressMessages(splot(...) )
-    x <- head(last_plot(), -1)
+    x <- head(ggplot2::last_plot(), -1)
     x <- x[tail(grep("plot", x), 1):length(x)]
     eval(parse(text=paste(x, collapse=" ")), envir=.GlobalEnv)
     dev.off()
