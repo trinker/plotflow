@@ -3,8 +3,7 @@
 \alias{unbalanced_facet_axis}
 \title{Add Tick Marks to an Unbalanced facet_wrap}
 \usage{
-unbalanced_facet_axis(ggplot_obj, position = c("up", "down"),
-  newpage = is.null(vp), vp = NULL)
+unbalanced_facet_axis(ggplot_obj, position = c("up", "down"))
 }
 \arguments{
 \item{ggplot_obj}{An unbalanced ggplot2 \code{\link[ggplot2]{facet_wrap}}
@@ -12,11 +11,6 @@ object.}
 
 \item{position}{Either \code{"up"} (match unbalanced facet's postition) or
 \code{"down"} (along bottom most axis).}
-
-\item{newpage}{logical.  If \code{TRUE} \code{\link[grid]{grid.newpage}} is
-used.}
-
-\item{vp}{logical.  If \code{TRUE} a viewport is used.}
 }
 \description{
 Adds the tick marks to an unblanced grouping of
