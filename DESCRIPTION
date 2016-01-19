@@ -11,11 +11,12 @@ Depends:
     ggplot2,
     gridExtra
 Imports:
-    grid
+    grid,
+    graphics,
+    gtable,    
 Suggests:
     GGally,
     ggdendro,
-    ggsubplot,
     ggthemes,
     gplots,
     plotrix,
