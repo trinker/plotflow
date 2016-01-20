@@ -37,9 +37,9 @@ theme_black <- function(base_size=12, base_family="") {
                 lineheight=0.9,hjust=1),
             axis.ticks=element_line(color="grey55", size = 0.2),
             axis.title.x=element_text(size=base_size, color="grey55", vjust=1, 
-                margin=margin(.5, 0, 0, 0, "lines")),
+                margin=ggplot2::margin(.5, 0, 0, 0, "lines")),
             axis.title.y=element_text(size=base_size, color="grey55", angle=90,
-                margin=margin(.5, 0, 0, 0, "lines"), vjust=0.5),
+                margin=ggplot2::margin(.5, 0, 0, 0, "lines"), vjust=0.5),
             axis.ticks.length=grid::unit(0.3, "lines"),
 
             # Specify legend options
