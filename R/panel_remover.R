@@ -10,9 +10,9 @@
 #' @return Returns a ggplot2 object with specific 
 #' \href{http://docs.ggplot2.org/current/theme.html}{strip.background}.
 #' removed.
-#' @references \url{http://stackoverflow.com/a/19064621/1000343}
+#' @references \url{http://stackoverflow.com/a/19067970/1000343}
 #' @keywords strip.background
-#' @author Roland (stackoverflow.com) and Tyler Rinker<tyler.rinker@@gmail.com>
+#' @author Baptiste Auguie and Tyler Rinker<tyler.rinker@@gmail.com>
 #' @export
 #' @import gridExtra
 #' @importFrom grid grob
@@ -27,22 +27,38 @@
 #' panel_remover(a, FALSE)
 panel_remover <- function(ggplot_obj, y = TRUE) {
 
-  g <- ggplotGrob(ggplot_obj)
-  what <- ifelse(y, "y", "x")
+    g <- ggplot2::ggplotGrob(a)
+    keep <- !grepl(sprintf("strip-%s", ifelse(y, 'right', 'top')), g$layout$name)
+    g$grobs <- g$grobs[keep]
+    g$layout <- g$layout[keep, ]
+    out <- gridExtra::arrangeGrob(g)
 
-    g$grobs <- lapply(g$grob, function(gr) {
-        if (any(grepl(paste0("strip.text.", what), names(gr$children)))) {
-            gr$children[[grep("strip.background", names(gr$children))]] <- zeroGrob()
-            gr$children[[grep("strip.text", names(gr$children))]] <- zeroGrob()
-        }
-        return(gr)
-    })
-    class(g) <- unique( c("arrange", "ggplot", class(g), class(ggplot_obj)) )
-    g
+    class(out) <- c("panel_remover", class(out))
+    out
 }
 
-zeroGrob <- function() {
-    g0 <- grob(name="NULL")
-    class(g0) <- c("zeroGrob",class(g0))
-    g0
+
+#' Plots a panel_remover Object
+#'
+#' Plots a panel_remover object.
+#'
+#' @param x The \code{panel_remover} object.
+#' @param \ldots Other arguments passed to \code{\link[gridExtra]{grid.arrange}}.
+#' @method plot panel_remover
+#' @export
+plot.panel_remover <- function(x, ...){
+    gridExtra::grid.arrange(x, ...)
 }
+
+#' Prints a panel_remover Object
+#'
+#' Prints a panel_remover object.
+#'
+#' @param x The \code{panel_remover} object.
+#' @param \ldots Other arguments passed to \code{\link[gridExtra]{grid.arrange}}.
+#' @method print panel_remover
+#' @export
+print.panel_remover <- function(x, ...){
+    graphics::plot(x, ...)
+}
+

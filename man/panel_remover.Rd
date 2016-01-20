@@ -31,10 +31,10 @@ panel_remover(a)
 panel_remover(a, FALSE)
 }
 \author{
-Roland (stackoverflow.com) and Tyler Rinker<tyler.rinker@gmail.com>
+Baptiste Auguie and Tyler Rinker<tyler.rinker@gmail.com>
 }
 \references{
-\url{http://stackoverflow.com/a/19064621/1000343}
+\url{http://stackoverflow.com/a/19067970/1000343}
 }
 \seealso{
 \code{\link[ggplot2]{theme}}
