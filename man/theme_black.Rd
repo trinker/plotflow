@@ -19,7 +19,6 @@ A ggplot2 theme with no background and no gridlines.
 ggplot(mtcars, aes(factor(cyl))) + geom_bar(fill="white") + theme_black()
 dat <- data.frame(y = c(austres), time = time(austres))
 ggplot(dat, aes(time, y)) + geom_line(color="lightblue", size=1) + theme_black()
-ggplot(movies, aes(rating)) + geom_histogram(color="white") + theme_black()
 
 \dontrun{
 library(maps)

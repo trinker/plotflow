@@ -14,7 +14,6 @@
 #' ggplot(mtcars, aes(factor(cyl))) + geom_bar(fill="white") + theme_black()
 #' dat <- data.frame(y = c(austres), time = time(austres))
 #' ggplot(dat, aes(time, y)) + geom_line(color="lightblue", size=1) + theme_black()
-#' ggplot(movies, aes(rating)) + geom_histogram(color="white") + theme_black()
 #' 
 #' \dontrun{
 #' library(maps)
@@ -37,11 +36,12 @@ theme_black <- function(base_size=12, base_family="") {
             axis.text.y=element_text(size=base_size*0.8, color="grey55",
                 lineheight=0.9,hjust=1),
             axis.ticks=element_line(color="grey55", size = 0.2),
-            axis.title.x=element_text(size=base_size, color="grey55", vjust=1),
+            axis.title.x=element_text(size=base_size, color="grey55", vjust=1, 
+                margin=margin(.5, 0, 0, 0, "lines")),
             axis.title.y=element_text(size=base_size, color="grey55", angle=90,
-                vjust=0.5),
+                margin=margin(.5, 0, 0, 0, "lines"), vjust=0.5),
             axis.ticks.length=grid::unit(0.3, "lines"),
-            axis.ticks.margin=grid::unit(0.5, "lines"),
+
             # Specify legend options
             legend.background=element_rect(color=NA, fill="black"),
             legend.key=element_rect(color="grey55", fill="black"),
