@@ -16,9 +16,12 @@
 #' ggplot(mtcars, aes(factor(cyl))) + geom_bar()
 #' ggplot(mtcars, aes(hp, mpg, group = factor(cyl))) + geom_point()
 ggplot_col <- function(col = "black", fill = TRUE, colour = TRUE, reset = TRUE) {
-    params <- ls(pattern = '^geom_', envir = as.environment('package:ggplot2'))
-    geoms <- gsub("geom_", "", params)
-
+    
+    params <- ls(pattern = 'Geom[A-Z]', envir = as.environment('package:ggplot2'))
+    geoms <- gsub("Geom", "", params)
+# 
+#     geoms
+    
     if (reset) {
         invisible(lapply(geoms, ggplot2::update_geom_defaults, list(fill = "black", 
         	colour = "black")))
