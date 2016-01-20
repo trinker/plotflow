@@ -15,16 +15,18 @@
 #' p1 <- ggplot(mtcars, aes(mpg, disp)) +
 #'     geom_line(colour = "blue") +
 #'     theme_bw() +
-#'     theme(plot.margin = unit(c(.5, 1, .5, 0), "cm"))
+#'     theme(plot.margin = grid::unit(c(.5, 1, .5, 0), "cm"))
 #'
 #' p2 <- ggplot(mtcars, aes(mpg, drat)) +
 #'     geom_line(colour = "red") +
 #'     theme_bw() +
-#'     theme(plot.margin = unit(c(.5, 1, .5, 0), "cm"))
+#'     theme(plot.margin = grid::unit(c(.5, 1, .5, 0), "cm"))
 #'
 #' ggdual_axis(lhs = p1, rhs = p2)
 ggdual_axis <- function(lhs, rhs, angle = 270) {
     # 1. Fix the right y-axis label justification
+    
+    r <- name <- NULL
     rhs <- rhs + ggplot2::theme(axis.text.y = ggplot2::element_text(hjust = 0))
     # 2. Rotate the right y-axis label by 270 degrees by default
     rhs <- rhs + ggplot2::theme(axis.title.y = ggplot2::element_text(angle = angle))
@@ -39,8 +41,8 @@ ggdual_axis <- function(lhs, rhs, angle = 270) {
     # Process gtable objects
     # 4. Extract gtable
 
-    g1 <- ggplot2::ggplot_gtable(ggplot_build(lhs))
-    g2 <- ggplot2::ggplot_gtable(ggplot_build(rhs))
+    g1 <- ggplot2::ggplot_gtable(ggplot2::ggplot_build(lhs))
+    g2 <- ggplot2::ggplot_gtable(ggplot2::ggplot_build(rhs))
     # 5. Overlap the panel of the rhs plot on that of the lhs plot
     pp <- c(subset(g1$layout, name == "panel", se = t:r))
     g <- gtable::gtable_add_grob(g1,
@@ -51,7 +53,7 @@ ggdual_axis <- function(lhs, rhs, angle = 270) {
     ax <- ga$children[["axis"]]  # ga$children[[2]]
     ax$widths <- rev(ax$widths)
     ax$grobs <- rev(ax$grobs)
-    ax$grobs[[1]]$x <- ax$grobs[[1]]$x - unit(1, "npc") + unit(0.15, "cm")
+    ax$grobs[[1]]$x <- ax$grobs[[1]]$x - grid::unit(1, "npc") + grid::unit(0.15, "cm")
     g <- gtable::gtable_add_cols(g, g2$widths[g2$layout[ia, ]$l], length(g$widths) - 1)
     g <- gtable::gtable_add_grob(g, ax, pp$t, length(g$widths) - 1, pp$b)
     g <- gtable::gtable_add_grob(g, g2$grobs[[7]], pp$t, length(g$widths), pp$b)

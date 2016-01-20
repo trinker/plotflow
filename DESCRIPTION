@@ -9,18 +9,19 @@ Description: Plotting functions not found in other plotting packages.
 Depends:
     R (>= 3.0.0),
     ggplot2,
-    gridExtra,
-    ggmap
+    gridExtra
 Imports:
     grid,
     graphics,
-    gtable,    
+    gtable,
 Suggests:
     GGally,
     ggdendro,
     ggthemes,
+    ggmap,
     gplots,
     plotrix,
     reshape2,
     scales
 License: GPL-2
+RoxygenNote: 5.0.1

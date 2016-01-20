@@ -25,12 +25,12 @@ lot dual y-axis for ggplot2 objects.
 p1 <- ggplot(mtcars, aes(mpg, disp)) +
     geom_line(colour = "blue") +
     theme_bw() +
-    theme(plot.margin = unit(c(.5, 1, .5, 0), "cm"))
+    theme(plot.margin = grid::unit(c(.5, 1, .5, 0), "cm"))
 
 p2 <- ggplot(mtcars, aes(mpg, drat)) +
     geom_line(colour = "red") +
     theme_bw() +
-    theme(plot.margin = unit(c(.5, 1, .5, 0), "cm"))
+    theme(plot.margin = grid::unit(c(.5, 1, .5, 0), "cm"))
 
 ggdual_axis(lhs = p1, rhs = p2)
 }

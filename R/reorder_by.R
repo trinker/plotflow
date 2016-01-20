@@ -12,7 +12,7 @@
 #' a factor vector is returned.
 #' @return Returns a re-ordered (re-leveled) dataframe, factor vector, or levels.
 #' @references The majority of this code is taken directly from Thomas Wutzler's
-#' blog post: \url{http://rwiki.sciviews.org/doku.php?id=tips\%3adata-frames\%3asort}
+#' blog post that has since been removed/redirected. 
 #' @author Thomas Wutzler and Tyler Rinker <tyler.rinker@@gmail.com>.
 #' @keywords factor order sort plot
 #' @export 
