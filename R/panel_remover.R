@@ -27,7 +27,7 @@
 #' panel_remover(a, FALSE)
 panel_remover <- function(ggplot_obj, y = TRUE) {
 
-    g <- ggplot2::ggplotGrob(a)
+    g <- ggplot2::ggplotGrob(ggplot_obj)
     keep <- !grepl(sprintf("strip-%s", ifelse(y, 'right', 'top')), g$layout$name)
     g$grobs <- g$grobs[keep]
     g$layout <- g$layout[keep, ]
