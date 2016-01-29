@@ -1,7 +1,8 @@
-plotflow
+plotflow 
 ========
 
 [![Build Status](https://travis-ci.org/trinker/plotflow.png?branch=master)](https://travis-ci.org/trinker/plotflow)
+[![Follow](https://img.shields.io/twitter/follow/tylerrinker.svg?style=social)](https://twitter.com/intent/follow?screen_name=tylerrinker)
 
 A group of tools to speed up work flow associated with plotting tasks.
 
