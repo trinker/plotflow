@@ -8,9 +8,11 @@
 #' @export
 #' @author John Colby
 #' @examples 
+#' scales:::show_col(ggcolors(n=9))
+#' 
 #' n <- 10
 #' ggcolors(n)
-#'
+#' 
 #' plot(
 #'     1:n, 
 #'     pch=16, 

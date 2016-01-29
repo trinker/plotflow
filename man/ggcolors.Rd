@@ -16,6 +16,8 @@ Returns a vector of \code{n} hex colors.
 Make a palette with \pkg{ggplot2}'s default color scheme.
 }
 \examples{
+scales:::show_col(ggcolors(n=9))
+
 n <- 10
 ggcolors(n)
 
