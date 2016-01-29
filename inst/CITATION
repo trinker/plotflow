@@ -1,0 +1,16 @@
+citHeader("To cite plotflow in publications, please use:")
+
+
+citEntry(entry = "manual",
+    title = "{plotflow}: Tools to speed up workflow associated with plotting",
+    author = "Tyler W. Rinker",
+    organization = "University at Buffalo/SUNY",
+    address = "Buffalo, New York",
+    note = "version 0.1.0",
+    year = "2015",
+    url = "http://github.com/trinker/plotflow",
+    textVersion  = paste("Rinker, T. W. (2015).",
+        "plotflow: Tools to speed up workflow associated with plotting",
+        "version 0.1.0. University at Buffalo. Buffalo, New York.",
+        "http://github.com/trinker/plotflow")
+)

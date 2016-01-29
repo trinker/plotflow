@@ -4,16 +4,12 @@
 \alias{ggalign}
 \title{Align ggplot2 Graph Edges}
 \usage{
-ggalign(plot1, plot2, plot = TRUE)
+ggalign(plot1, plot2)
 }
 \arguments{
 \item{plot1}{A ggplot2 plot.}
 
 \item{plot2}{A ggplot2 plot.}
-
-\item{plot}{logical.  If \code{TRUE} the plot will automatically plot.
-The user may wish to set to \code{FALSE} for use in knitr, sweave, etc.
-to add additional plot layers.}
 }
 \value{
 Returns a stacked grid object with left/right edges aligned.
