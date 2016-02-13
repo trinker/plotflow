@@ -2,12 +2,12 @@ Package: plotflow
 Type: Package
 Title: Tools to Speed Up Workflow Associated with Plotting
 Version: 0.1.0
-Date: 2016-02-11
+Date: 2016-02-12
 Author: Tyler Rinker & Ananda Mahto
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Description: Plotting functions not found in other plotting packages.
 Depends: R (>= 3.0.0), ggplot2, gridExtra
-Imports: grid, graphics, gtable,
+Imports: dplyr, grid, graphics, gtable
 Suggests: GGally, ggdendro, ggthemes, ggmap, gplots, plotrix, reshape2,
         scales
 License: GPL-2

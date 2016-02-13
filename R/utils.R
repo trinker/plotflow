@@ -58,3 +58,32 @@ read_clip <- function() {
     out
 }
 
+pp <- function(x, digits = getOption("digit_digits")) {
+    
+    f(x, digits = digits, e="%")
+}
+
+pc <- function(x, big.mark = ",", ...) {
+
+    prettyNum(x, big.mark, ...)
+}
+
+
+f <- function(x, digits = getOption("digit_digits"), s, e) {
+
+    if (is.null(digits)) digits <- 3
+
+    if(length(digits) > 1) {
+        digits <- digits[1]
+        warning("Using only digits[1]")
+    }
+
+    x <- round(as.numeric(x), digits)
+
+    if (digits > 0) x <- sprintf(paste0("%.", digits, "f"), x)
+    out <- gsub("^0(?=\\.)|(?<=-)0", "", x, perl=TRUE)
+    out[out == "NA"] <- NA
+    if (!missing(s)) out <- paste0(s, out)
+    if (!missing(e)) out <- paste0(out, e)
+    out
+}
