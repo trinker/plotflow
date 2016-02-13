@@ -6,8 +6,8 @@ Date: 2016-02-12
 Author: Tyler Rinker & Ananda Mahto
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Description: Plotting functions not found in other plotting packages.
-Depends: R (>= 3.0.0), ggplot2, gridExtra
-Imports: dplyr, grid, graphics, gtable
+Depends: R (>= 3.0.0), ggplot2
+Imports: dplyr, grid, graphics, gtable, gridExtra
 Suggests: GGally, ggdendro, ggthemes, ggmap, gplots, plotrix, reshape2,
         scales
 License: GPL-2
