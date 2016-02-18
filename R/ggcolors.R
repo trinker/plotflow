@@ -1,11 +1,12 @@
 #' ggplot2's Default Color Scheme
 #' 
-#' Make a palette with \pkg{ggplot2}'s default color scheme.
+#' \code{ggcolors} - Make a palette with \pkg{ggplot2}'s default color scheme.
 #' 
 #' @param n An integer specifying the number of colors.
 #' @return Returns a vector of \code{n} hex colors.
 #' @references \url{http://stackoverflow.com/a/8197703/1000343}
 #' @export
+#' @rdname ggcolors
 #' @author John Colby
 #' @examples 
 #' scales:::show_col(ggcolors(n=9))
@@ -45,6 +46,16 @@ ggcolors <- function(n) {
 }
 
 
+
+#' ggplot2's Default Color Scheme
+#' 
+#' \code{random_ggcolors} - Make a random n length palette with \pkg{ggplot2}'s 
+#' default color scheme.
+#' @export
+#' @rdname ggcolors
+random_ggcolors <- function(n) {
+    sample(ggcolors(n))
+}
 
 
 

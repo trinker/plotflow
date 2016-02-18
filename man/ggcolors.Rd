@@ -2,9 +2,12 @@
 % Please edit documentation in R/ggcolors.R
 \name{ggcolors}
 \alias{ggcolors}
+\alias{random_ggcolors}
 \title{ggplot2's Default Color Scheme}
 \usage{
 ggcolors(n)
+
+random_ggcolors(n)
 }
 \arguments{
 \item{n}{An integer specifying the number of colors.}
@@ -13,7 +16,10 @@ ggcolors(n)
 Returns a vector of \code{n} hex colors.
 }
 \description{
-Make a palette with \pkg{ggplot2}'s default color scheme.
+\code{ggcolors} - Make a palette with \pkg{ggplot2}'s default color scheme.
+
+\code{random_ggcolors} - Make a random n length palette with \pkg{ggplot2}'s 
+default color scheme.
 }
 \examples{
 scales:::show_col(ggcolors(n=9))
