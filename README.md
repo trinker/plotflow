@@ -21,7 +21,7 @@ install_github("plotflow", "trinker")
 ```
 
 ## Installing Ghostscript
-[ghostscript](http://www.ghostscript.com/) must be installed and on your path.
+[ghostscript](http://www.ghostscript.com/) must be installed when using `merge_pdf`.
 
 ## Help
 [Help Manual](https://dl.dropbox.com/u/61803503/plotflow.pdf)
