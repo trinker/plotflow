@@ -1,7 +1,9 @@
 #' Plot Base R colors()
-#' 
+#'
 #' Makes a plot of base R colors from \code{\link[grDevices]{colors}}.
-#' 
+#'
+#' @importFrom grDevices col2rgb colors
+#' @importFrom graphics plot rect text title
 #' @export
 #' @author Earl F. Glynn
 #' @references \url{http://research.stowers-institute.org/efg/R/Color/Chart/ColorChart.R}
@@ -14,12 +16,12 @@ qcolor <- function() {
 
     TextContrastColor <- unlist( lapply(colors(), SetTextContrastColor) )
 
-    colCount <- 25 
+    colCount <- 25
     rowCount <- 27
     plot( c(1,colCount), c(0,rowCount), type="n", ylab="", xlab="",
       axes=FALSE, ylim=c(rowCount,0))
     title("R colors")
-    
+
     for (j in 0:(rowCount-1)) {
       base <- j*colCount
       remaining <- length(colors()) - base
@@ -30,4 +32,4 @@ qcolor <- function() {
       text((1:RowSize), j, paste(base + (1:RowSize)), cex=0.7,
         col=TextContrastColor[base + (1:RowSize)])
     }
-}   
+}

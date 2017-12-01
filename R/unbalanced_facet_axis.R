@@ -1,84 +1,78 @@
 #' Add Tick Marks to an Unbalanced facet_wrap
-#' 
-#' Adds the tick marks to an unblanced grouping of 
+#'
+#' Adds the tick marks to an unbalanced grouping of
 #' \code{\link[ggplot2]{facet_wrap}} plots.
-#' 
-#' @param ggplot_obj An unbalanced ggplot2 \code{\link[ggplot2]{facet_wrap}} 
-#' object. 
-#' @param position Either \code{"up"} (match unbalanced facet's postition) or 
-#' \code{"down"} (along bottom most axis).
-#' @author \href{http://stackoverflow.com/users/1320535/julius}{Julius} 
-#' (stackoverflow.com) 
+#'
+#' @param ggplot_obj An unbalanced ggplot2 \code{\link[ggplot2]{facet_wrap}}
+#' object.
+#' @param position Either \code{"up"} (match unbalanced facet's position,
+#' as is the default of ggplot2) or \code{"down"} (along bottom most axis).
+#' @author Original by \href{http://stackoverflow.com/users/1320535/julius}{Julius}
+#' (stackoverflow.com). Updated by Mikko Korpela for ggplot2 >= 2.2.0.
 #' @references \url{http://stackoverflow.com/a/13316126/1000343}
 #' @keywords facet_wrap axis
+#' @importFrom ggplot2 ggplot_build ggplot_gtable
 #' @export
 #' @examples
-#' set.seed(10)
-#' mtcars[["new"]] <- sample(LETTERS[1:7], nrow(mtcars), TRUE)
-#' 
+#' set.seed(2)
+#' mtcars2 <- mtcars
+#' mtcars2[["new"]] <- sample(LETTERS[1:7], nrow(mtcars), TRUE)
+#'
 #' library(ggplot2)
-#' 
-#' unbalanced_facet_axis(ggplot(mtcars, aes(x=mpg, y=hp)) +
+#'
+#' unbalanced_facet_axis(ggplot(mtcars2, aes(x=mpg, y=hp)) +
 #'     geom_line() +
 #'     facet_wrap(~new, ncol=2))
-#' 
-#' unbalanced_facet_axis(ggplot(mtcars, aes(x=mpg, y=hp)) +
+#'
+#' unbalanced_facet_axis(ggplot(mtcars2, aes(x=mpg, y=hp)) +
 #'     geom_line() +
 #'     facet_wrap(~new, ncol=3), "down")
 unbalanced_facet_axis <- function(ggplot_obj, position = c("up", "down")) {
-
-    position <- match.arg(position)
-    p <- ggplot2::ggplot_build(ggplot_obj)
-    gtable <- ggplot2::ggplot_gtable(p)
-    dev.off()
-    dims <- apply(p$panel$layout[2:3], 2, max)
-    nrow <- dims[1]
-    ncol <- dims[2]
-    panels <- sum(grepl("panel", names(gtable$grobs)))
-    space <- ncol * nrow
-    n <- space - panels
-    if(panels != space){
-        idx <- (space - ncol - n + 1):(space - ncol)
-        gtable$grobs[paste0("axis_b",idx)] <- list(gtable$grobs[[paste0("axis_b",panels)]])
-        if(position == "down"){
-            rows <- grep(paste0("axis_b\\-[", idx[1], "-", idx[n], "]"), 
-                gtable$layout$name)
-            lastAxis <- grep(paste0("axis_b\\-", panels), gtable$layout$name)
-            gtable$layout[rows, c("t","b")] <- gtable$layout[lastAxis, c("t")]
-        }
+    pos <- match.arg(position)
+    gb <- ggplot_build(ggplot_obj)
+    gt <- ggplot_gtable(gb)
+    ## Nothing done for position == "up" (nowadays default in ggplot2)
+    if (pos == "down") {
+        layout <- gt$layout
+        layout_names <- layout$name
+        grob_names <- vapply(gt$grobs, `[[`, "", "name")
+        idx_axb <- which(grepl("^axis-b", layout_names) & grob_names != "NULL")
+        t_axb <- layout$t[idx_axb]
+        b_axb <- layout$b[idx_axb]
+        max_t <- max(t_axb)
+        max_b <- max(b_axb)
+        layout$t[idx_axb] <- max_t
+        layout$b[idx_axb] <- max_b
+        gt$layout <- layout
     }
-    class(gtable) <- c("unbalanced_facet_axis", "gtable", "ggplot")
-    gtable
-
+    class(gt) <- c("unbalanced_facet_axis", class(gt))
+    gt
 }
 
-
-#' Prints a unbalanced_facet_axis object.
-#' 
-#' Prints a unbalanced_facet_axis object.
-#' 
+#' Plots an unbalanced_facet_axis object.
+#'
+#' Plots an unbalanced_facet_axis object.
+#'
 #' @param x The unbalanced_facet_axis object
-#' @param newpage logical.  If \code{TRUE} \code{\link[grid]{grid.newpage}} is called.  
-#' @param viewport logical.  If character \code{\link[grid]{seekViewport}} is 
-#' used.  If an object \code{\link[grid]{pushViewport}} is used.  If \code{NULL} 
+#' @param newpage logical.  If \code{TRUE} \code{\link[grid]{grid.newpage}} is called.
+#' @param viewport logical.  If character \code{\link[grid]{seekViewport}} is
+#' used.  If an object \code{\link[grid]{pushViewport}} is used.  If \code{NULL}
 #' neither viewport is used.
 #' @param \ldots ignored
 #' @export
-#' @method print unbalanced_facet_axis
-print.unbalanced_facet_axis <- function(x, newpage = is.null(viewport), viewport = NULL, ...) {
-    if(newpage) grid::grid.newpage()
-     if(is.null(viewport)){
-        grid::grid.draw(x)
-    } else {
-        if (is.character(viewport)) {
-            grid::seekViewport(viewport)
-        } else {
-            grid::pushViewport(viewport)
-		}
-        grid::grid.draw(x)
-        grid::upViewport()
-    }
-    invisible(x)
-
+#' @method plot unbalanced_facet_axis
+plot.unbalanced_facet_axis <- function(x, newpage = is.null(viewport), viewport = NULL, ...) {
+    NextMethod("plot", NULL, newpage = newpage, vp = viewport, ...)
 }
 
+#' Prints an unbalanced_facet_axis object.
+#'
+#' Calls \code{\link{plot}} with the same arguments.
+#'
+#' @param x The unbalanced_facet_axis object
+#' @param \ldots arguments passed to the plot method
+#' @export
+#' @method print unbalanced_facet_axis
+print.unbalanced_facet_axis <- function(x, ...) {
+    plot(x, ...)
+}

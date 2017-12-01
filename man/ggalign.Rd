@@ -23,11 +23,10 @@ A <- ggplot(CO2, aes(x=Plant)) + geom_bar() + coord_flip()
 B <- ggplot(CO2, aes(x=Type)) + geom_bar() + coord_flip() 
 ggalign(A, B)
 }
-\author{
-Baptiste Auguie
-}
 \references{
 \url{http://stackoverflow.com/a/13295880/1000343}
 }
+\author{
+Baptiste Auguie
+}
 \keyword{align}
-

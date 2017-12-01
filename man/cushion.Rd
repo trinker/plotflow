@@ -15,10 +15,10 @@ cushion(x, pad = 0.05)
 Returns the max value of a vector + n extra.
 }
 \description{
-Determine max value of a vector plus an additional pproportion.
+Determine max value of a vector plus an additional proportion.
 }
 \note{
-If x is a factor or character vector counts for each category are used 
+If x is a factor or character vector counts for each category are used
 as \code{max(n)}.
 }
 \examples{
@@ -27,12 +27,11 @@ cushion(mtcars$cyl)
 cushion(mtcars$cyl, .5)
 
 \dontrun{
-ggplot(reorder_by(cyl, ~-cyl , mtcars, length), aes(x=as.factor(cyl))) + 
-    geom_bar()  + 
-    theme_apa() + 
+ggplot(reorder_by(cyl, ~-cyl , mtcars, length), aes(x=as.factor(cyl))) +
+    geom_bar()  +
+    theme_apa() +
     y0(cushion(as.factor(mtcars$cyl))) +
-    xlab("Cylinders") + 
+    xlab("Cylinders") +
     ylab("Total")
 }
 }
-

@@ -54,10 +54,9 @@ pie(
     border = ggcolors(n)
 )
 }
-\author{
-John Colby
-}
 \references{
 \url{http://stackoverflow.com/a/8197703/1000343}
 }
-
+\author{
+John Colby
+}

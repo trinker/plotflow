@@ -14,4 +14,3 @@
 \description{
 Prints a ggdual_axis object.
 }
-

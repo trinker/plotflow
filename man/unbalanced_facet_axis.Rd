@@ -7,37 +7,37 @@
 unbalanced_facet_axis(ggplot_obj, position = c("up", "down"))
 }
 \arguments{
-\item{ggplot_obj}{An unbalanced ggplot2 \code{\link[ggplot2]{facet_wrap}} 
+\item{ggplot_obj}{An unbalanced ggplot2 \code{\link[ggplot2]{facet_wrap}}
 object.}
 
-\item{position}{Either \code{"up"} (match unbalanced facet's postition) or 
-\code{"down"} (along bottom most axis).}
+\item{position}{Either \code{"up"} (match unbalanced facet's position,
+as is the default of ggplot2) or \code{"down"} (along bottom most axis).}
 }
 \description{
-Adds the tick marks to an unblanced grouping of 
+Adds the tick marks to an unbalanced grouping of
 \code{\link[ggplot2]{facet_wrap}} plots.
 }
 \examples{
-set.seed(10)
-mtcars[["new"]] <- sample(LETTERS[1:7], nrow(mtcars), TRUE)
+set.seed(2)
+mtcars2 <- mtcars
+mtcars2[["new"]] <- sample(LETTERS[1:7], nrow(mtcars), TRUE)
 
 library(ggplot2)
 
-unbalanced_facet_axis(ggplot(mtcars, aes(x=mpg, y=hp)) +
+unbalanced_facet_axis(ggplot(mtcars2, aes(x=mpg, y=hp)) +
     geom_line() +
     facet_wrap(~new, ncol=2))
 
-unbalanced_facet_axis(ggplot(mtcars, aes(x=mpg, y=hp)) +
+unbalanced_facet_axis(ggplot(mtcars2, aes(x=mpg, y=hp)) +
     geom_line() +
     facet_wrap(~new, ncol=3), "down")
-}
-\author{
-\href{http://stackoverflow.com/users/1320535/julius}{Julius} 
-(stackoverflow.com)
 }
 \references{
 \url{http://stackoverflow.com/a/13316126/1000343}
 }
+\author{
+Original by \href{http://stackoverflow.com/users/1320535/julius}{Julius}
+(stackoverflow.com). Updated by Mikko Korpela for ggplot2 >= 2.2.0.
+}
 \keyword{axis}
 \keyword{facet_wrap}
-

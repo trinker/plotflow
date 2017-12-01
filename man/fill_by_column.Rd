@@ -14,7 +14,7 @@ fill_by_column(dataframe, fact, ncol = 2)
 \item{ncol}{Number of columns to make the plot}
 }
 \description{
-Alter the data set to fill ggplot2's \code{\link[ggplot2]{facet_wrap}} by 
+Alter the data set to fill ggplot2's \code{\link[ggplot2]{facet_wrap}} by
 column rather than row.
 }
 \examples{
@@ -24,21 +24,20 @@ dat$carb <- factor(dat$carb, rev(dat$carb[order(rowSums(dat[, -1]))]))
 mdat <- melt(dat)
 
 ggplot(mdat, aes(x = variable)) +
-  geom_bar(stat="count", aes(fil=variable, weights = value)) +
+  geom_bar(stat="count", aes(fill=variable, weight = value)) +
   facet_wrap(~carb, ncol = 2) + coord_flip()
 
 ggplot(fill_by_column(mdat, "carb"), aes(x = variable)) +
-  geom_bar(stat="count", aes(fil=variable, weights = value)) +
+  geom_bar(stat="count", aes(fill=variable, weight = value)) +
   facet_wrap(~carb, ncol = 2) + coord_flip()
 
 ggplot(fill_by_column(mdat, "carb", 3), aes(x = variable)) +
-  geom_bar(stat="count", aes(fil=variable, weights = value)) +
+  geom_bar(stat="count", aes(fill=variable, weight = value)) +
   facet_wrap(~carb, ncol = 3) + coord_flip()
-}
-\author{
-jem77bfp (stackoverflow.com) and Tyler Rinker <tyler.rinker@gmail.com>
 }
 \references{
 \url{http://stackoverflow.com/a/12893273/1000343}
 }
-
+\author{
+jem77bfp (stackoverflow.com) and Tyler Rinker <tyler.rinker@gmail.com>
+}

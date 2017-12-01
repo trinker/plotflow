@@ -38,4 +38,3 @@ ggdual_axis(lhs = p1, rhs = p2)
 \url{http://stackoverflow.com/a/27608585/1000343}
 \url{http://stackoverflow.com/a/25699817/1000343}
 }
-

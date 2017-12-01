@@ -16,7 +16,7 @@ parameters (\code{n.yes}, \code{n.no}, or \code{n}).}
 
 \item{n}{Total number (integer).}
 
-\item{labs}{The labels to use for the two choices that correspond to 
+\item{labs}{The labels to use for the two choices that correspond to
 \code{n.yes} and \code{n.no}.}
 
 \item{digits}{Digits to use in the percents.}
@@ -29,8 +29,8 @@ parameters (\code{n.yes}, \code{n.no}, or \code{n}).}
 
 \item{size}{The text size.}
 
-\item{include.percent}{A logical vector of 1-2 (if 1 the second will be 
-\code{FALSE}) stating if percents should be included.  The length of 2 
+\item{include.percent}{A logical vector of 1-2 (if 1 the second will be
+\code{FALSE}) stating if percents should be included.  The length of 2
 corresponds to the 2 choices; \code{n.yes} and \code{n.no}.  If a single value
 is given it is recycled.}
 }
@@ -46,13 +46,12 @@ infographic style plot.
 yes_no_bar(111, 66)
 yes_no_bar(111, 66, fill=c("pink", "ivory"), color="purple")
 yes_no_bar(55, n = 166, labs = c("True", "False"))
-yes_no_bar(2345, 3456, labs = c("Boy", "Girl"), fill=c("lightblue", "pink"), 
+yes_no_bar(2345, 3456, labs = c("Boy", "Girl"), fill=c("lightblue", "pink"),
     color="grey50", include.percent = TRUE)
-yes_no_bar(2345, 3456, labs = c("Boy", "Girl"), fill=c("lightblue", "pink"), 
+yes_no_bar(2345, 3456, labs = c("Boy", "Girl"), fill=c("lightblue", "pink"),
     color="grey50", include.percent = FALSE)
-yes_no_bar(9999, n = 22166, fill=c("green", "pink"), 
+yes_no_bar(9999, n = 22166, fill=c("green", "pink"),
     labs = c("Go:", "Stop"), color = "grey30", digits=0)
 }
 \keyword{bar}
 \keyword{infographic}
-

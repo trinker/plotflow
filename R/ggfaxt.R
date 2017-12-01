@@ -1,16 +1,16 @@
 #' Add Text to a Faceted ggplot2 Plot
-#' 
+#'
 #' A ggplot2 wrapper for adding text to facets.
-#' 
-#' @param  ggplot2.object a faceted ggplot2 object or an object returned from 
+#'
+#' @param  ggplot2.object a faceted ggplot2 object or an object returned from
 #' qfacet_text
-#' @param  x.coord a single x coordinate to be repeated or a vector of x 
+#' @param  x.coord a single x coordinate to be repeated or a vector of x
 #' coordinates equal to the number of facets
-#' @param  y.coord a single y coordinate to be repeated or a vector of y 
+#' @param  y.coord a single y coordinate to be repeated or a vector of y
 #' coordinates equal to the number of facets
 #' @param  labels a vector of labels to place on each facet
 #' @param \ldots additional arguments accepted by geom_text
-#' @return Returns a plot of class "gg" "ggplot" with annotations.  Also 
+#' @return Returns a plot of class "gg" "ggplot" with annotations.  Also
 #' invisibly returns a list object of the class qfacet with the following items:
 #' \itemize{
 #'   \item{original} {the Original ggplot2 object}
@@ -22,81 +22,80 @@
 #' @export
 #' @examples
 #' #alter mtcars to make some variables factors
-#' mtcars[, c("cyl", "am", "gear")] <- lapply(mtcars[, 
+#' mtcars2 <- mtcars
+#' mtcars2[, c("cyl", "am", "gear")] <- lapply(mtcars[,
 #'     c("cyl", "am", "gear")], as.factor)
-#'  
-#' p <- ggplot(mtcars, aes(mpg, wt, group = cyl)) + 
+#'
+#' p <- ggplot(mtcars2, aes(mpg, wt, group = cyl)) +
 #'     geom_line(aes(color=cyl)) +
-#'     geom_point(aes(shape=cyl)) + 
+#'     geom_point(aes(shape=cyl)) +
 #'     facet_grid(gear ~ am) +
-#'     theme_bw()  
-#'  
-#' z <- ggfaxt(ggplot2.object = p, x.coor = 33, y.coor = 2.2, 
+#'     theme_bw()
+#'
+#' z <- ggfaxt(ggplot2.object = p, x.coor = 33, y.coor = 2.2,
 #'     labels = 1:6, color="red")
-#   
+#
 #' #approach 1 (alter the text data frame and pass the qfacet object)
 #' z$dat[5, 1:2] <- c(15, 5)
 #' ggfaxt(z, color="red")
-#'  
+#'
 #' #approach 2 (alter the original ggplot object)
-#' ggfaxt(p, x = c(33, 33, 33, 33, 15, 33), 
+#' ggfaxt(p, x = c(33, 33, 33, 33, 15, 33),
 #'     y = c(2.2, 2.2, 2.2, 2.2, 5, 2.2), 1:6, color="red")
-#'     
+#'
 #' #use "" to not add a label to a facet
 #' ggfaxt(ggplot2.object = p, x.coor = 33, y.coor = 2.2,
 #'     labels = c("", letters[1:4], ""), color="red")
-#'  
+#'
 #' #all the same things you can pass to geom_text qfacet_text takes
-#' ggfaxt(z, labels = paste("beta ==", 1:6), 
+#' ggfaxt(z, labels = paste("beta ==", 1:6),
 #'     size = 3, color = "grey50", parse = TRUE)
-#'      
+#'
 #' #two labels: same plot
-#' p <- ggplot(CO2, aes(conc, uptake, group = Plant)) + 
+#' p <- ggplot(CO2, aes(conc, uptake, group = Plant)) +
 #'     geom_line(aes(color=Plant)) +
 #'     facet_grid(Type ~ Treatment) +
-#'     theme_bw()  
-#'     
+#'     theme_bw()
+#'
 #' #plot first text layer
-#' z <- ggfaxt(ggplot2.object = p, x.coor = 250, y.coor = 10, 
+#' z <- ggfaxt(ggplot2.object = p, x.coor = 250, y.coor = 10,
 #'      labels = 1:4, color="red")
-#'      
+#'
 #' #plot second text layer
-#' ggfaxt(ggplot2.object = z$new, x.coor = 900, y.coor = 10, 
+#' ggfaxt(ggplot2.object = z$new, x.coor = 900, y.coor = 10,
 #'     labels = paste("beta ==", 11:14), color="blue", parse = TRUE)
-#'     
-#' ## Replace mtcars
-#' mtcars <- datasets::mtcars
 ggfaxt <-
-function(ggplot2.object, x.coord = NULL, y.coord = NULL, 
+function(ggplot2.object, x.coord = NULL, y.coord = NULL,
     labels = NULL, ...) {
-	
+
 	x <- y <- NULL
-	
+
     dat <- ggplot2.object$data
-    look <- sapply(ggplot2.object$facet[1:2], as.character)
-    empt <- function(x) {!identical(x, character(0))}
-    who <- sapply(look, empt)
+    params <- ggplot2.object$facet$params
+    rows <- params$rows
+    cols <- params$cols
+    who <- c(length(rows) > 0, length(cols) > 0)
     if (all(who)) {
-        rows <- ggplot2.object$facet[[1]][[1]]
-        frow <- dat[, as.character(rows)]
-        cols <- ggplot2.object$facet[[2]][[1]]
-        fcol <- dat[, as.character(cols)]
+        rows <- as.character(rows[[1]])
+        cols <- as.character(cols[[1]])
+        frow <- dat[, rows]
+        fcol <- dat[, cols]
         len <- length(levels(factor(fcol))) *  length(levels(factor(frow)))
         vars <- data.frame(expand.grid(levels(factor(frow)), levels(factor(fcol))))
-        colnames(vars) <- c(as.character(rows), as.character(cols))
+        colnames(vars) <- c(rows, cols)
     } else {
         if (who[1]) {
-            rows <- ggplot2.object$facet[[1]][[1]]
-            frow <- dat[, as.character(rows)]    
+            rows <- as.character(rows[[1]])
+            frow <- dat[, rows]
             len <- length(levels(factor(frow)))
             vars <- data.frame(levels(factor(frow)), stringsAsFactors = FALSE)
-            colnames(vars) <- as.character(rows)
+            colnames(vars) <- rows
         } else {
-            cols <- ggplot2.object$facet[[2]][[1]]
-            fcol <- dat[, as.character(cols)]  
+            cols <- as.character(cols[[1]])
+            fcol <- dat[, cols]
             len <- length(levels(factor(fcol)))
             vars <- data.frame(levels(factor(fcol)), stringsAsFactors = FALSE)
-            colnames(vars) <- as.character(cols)    
+            colnames(vars) <- cols
         }
     }
     if (any(class(ggplot2.object) %in% c("ggplot", "gg"))) {
@@ -128,7 +127,7 @@ function(ggplot2.object, x.coord = NULL, y.coord = NULL,
             ggplot2.object <- ggplot2.object$original
         }
     }
-    p <- ggplot2.object + ggplot2::geom_text(ggplot2::aes_string('x', 'y', 
+    p <- ggplot2.object + ggplot2::geom_text(ggplot2::aes_string('x', 'y',
         label='labs', group=NULL), data=text.df, ...)
     print(p)
     v <- list(original = ggplot2.object, new = p, dat = text.df)
