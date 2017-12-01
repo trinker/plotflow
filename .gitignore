@@ -3,4 +3,6 @@
 .RData
 plotflow.Rproj
 ^\.Rprofile
+inst/build.R
+inst/maintenance.R
 
