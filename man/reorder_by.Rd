@@ -67,15 +67,14 @@ ggplot(mtcars2, aes(mpg, hp)) +
     facet_grid(gear~.)
 }
 }
-\author{
-Thomas Wutzler and Tyler Rinker <tyler.rinker@gmail.com>.
-}
 \references{
 The majority of this code is taken directly from Thomas Wutzler's
 blog post that has since been removed/redirected.
+}
+\author{
+Thomas Wutzler and Tyler Rinker <tyler.rinker@gmail.com>.
 }
 \keyword{factor}
 \keyword{order}
 \keyword{plot}
 \keyword{sort}
-

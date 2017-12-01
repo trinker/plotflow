@@ -34,10 +34,9 @@ ggplot(label_breaks(dat, "Type"),  aes(x = Type, y = Location)) +
     geom_boxplot() + 
     coord_flip() 
 }
-\author{
-Mollie Taylor and Tyler Rinker <tyler.rinker@gmail.com>
-}
 \references{
 \url{http://www.mollietaylor.com/2013/10/line-breaks-between-words-in-axis.html}
 }
-
+\author{
+Mollie Taylor and Tyler Rinker <tyler.rinker@gmail.com>
+}

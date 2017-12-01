@@ -2,7 +2,7 @@
 % Please edit documentation in R/merge_pdf.R
 \name{merge_pdf}
 \alias{merge_pdf}
-\title{Merge Differnt Sized Plots}
+\title{Merge Different Sized Plots}
 \usage{
 merge_pdf(n.plots, file, widths = 8, heights = 8, n.lines = 1)
 }
@@ -11,14 +11,14 @@ merge_pdf(n.plots, file, widths = 8, heights = 8, n.lines = 1)
 
 \item{file}{A connection, or a character string naming the file to print to.}
 
-\item{widths}{A vector of widths equal to \code{n.plots} or a single value 
+\item{widths}{A vector of widths equal to \code{n.plots} or a single value
 that will be used for all plot widths.}
 
-\item{heights}{A vector of heights equal to \code{n.plots} or a single value 
+\item{heights}{A vector of heights equal to \code{n.plots} or a single value
 that will be used for all plot widths.}
 
-\item{n.lines}{A vector of integer values indicating the number of lines each 
-plotting sequance will take.  Default is 1 line each.}
+\item{n.lines}{A vector of integer values indicating the number of lines each
+plotting sequence will take.  Default is 1 line each.}
 }
 \value{
 Returns a single combined plot of various sizes.
@@ -27,7 +27,7 @@ Returns a single combined plot of various sizes.
 Allows for merging of different sized R plots.
 }
 \note{
-To use with ggplot the plotting sequance must be wrapped with 
+To use with ggplot the plotting sequence must be wrapped with
 \code{plot()}.
 }
 \examples{
@@ -45,4 +45,3 @@ print(p)
 }
 }
 \keyword{plot}
-

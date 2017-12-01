@@ -29,4 +29,3 @@ ggplot(mtcars, aes(factor(cyl))) + geom_bar() + theme_basic(x = TRUE, y = TRUE)
 \seealso{
 \code{\link[ggplot2]{theme}}
 }
-

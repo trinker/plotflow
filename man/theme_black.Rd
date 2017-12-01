@@ -7,7 +7,7 @@
 theme_black(base_size = 12, base_family = "")
 }
 \arguments{
-\item{base_size}{The size to use for text.  Various textual components are 
+\item{base_size}{The size to use for text.  Various textual components are
 scaled off of this value.}
 
 \item{base_family}{The base font family.}
@@ -18,13 +18,14 @@ A ggplot2 theme with no background and no gridlines.
 \examples{
 ggplot(mtcars, aes(factor(cyl))) + geom_bar(fill="white") + theme_black()
 dat <- data.frame(y = c(austres), time = time(austres))
-ggplot(dat, aes(time, y)) + geom_line(color="lightblue", size=1) + theme_black()
+ggplot(dat, aes(time, y)) + scale_x_continuous() +
+    geom_line(color="lightblue", size=1) + theme_black()
 
 \dontrun{
 library(maps)
 crimes <- data.frame(state = tolower(rownames(USArrests)), USArrests)
 states_map <-map_data("state")
- 
+
 ggplot(crimes, aes(map_id = state)) +
     geom_map(aes(fill = Murder), map = states_map) +
     expand_limits(x = states_map$long, y = states_map$lat) +
@@ -32,13 +33,12 @@ ggplot(crimes, aes(map_id = state)) +
     scale_fill_gradient(low="grey10", high="white")
 }
 }
-\author{
-Jon Lefcheck (\url{http://jonlefcheck.net})
-}
 \references{
 \url{http://jonlefcheck.net/2013/03/11/black-theme-for-ggplot2-2}
 }
 \seealso{
 \code{\link[ggplot2]{theme}}
 }
-
+\author{
+Jon Lefcheck (\url{http://jonlefcheck.net})
+}

@@ -32,4 +32,3 @@ ggplot(mtcars, aes(hp, mpg, group = factor(cyl))) + geom_point()
 \seealso{
 \code{\link[ggplot2]{update_geom_defaults}}
 }
-

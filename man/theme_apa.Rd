@@ -14,30 +14,29 @@ A ggplot2 theme with no background and Times New Roman font.
 }
 \examples{
 \dontrun{
-ggplot(reorder_by(cyl, ~-cyl , mtcars, length), aes(x=as.factor(cyl))) + 
-    geom_bar()  + 
-    theme_apa() + 
+ggplot(reorder_by(cyl, ~-cyl , mtcars, length), aes(x=as.factor(cyl))) +
+    geom_bar()  +
+    theme_apa() +
     y0(cushion(as.factor(mtcars$cyl))) +
-    xlab("Cylinders") + 
+    xlab("Cylinders") +
     ylab("Total")
 
-ggplot(reorder_by(cyl, ~-cyl , mtcars, length), aes(x=as.factor(cyl))) + 
-    geom_bar()  + 
-    theme_apa(plot.box=T) + 
+ggplot(reorder_by(cyl, ~-cyl , mtcars, length), aes(x=as.factor(cyl))) +
+    geom_bar()  +
+    theme_apa(plot.box=T) +
     y0(cushion(as.factor(mtcars$cyl))) +
-    xlab("Cylinders") + 
+    xlab("Cylinders") +
     ylab("Total")
 
-ggplot(reorder_by(cyl, ~-cyl , mtcars, length), aes(x=as.factor(cyl))) + 
-    geom_bar()  + 
+ggplot(reorder_by(cyl, ~-cyl , mtcars, length), aes(x=as.factor(cyl))) +
+    geom_bar()  +
     theme_basic() +
-    theme_apa() + 
+    theme_apa() +
     y0(cushion(as.factor(mtcars$cyl))) +
-    xlab("Cylinders") + 
+    xlab("Cylinders") +
     ylab("Total")
 }
 }
 \seealso{
 \code{\link[ggplot2]{theme}}
 }
-

@@ -20,4 +20,3 @@ usamap + theme_map()
 \seealso{
 \code{\link[ggplot2]{theme}}
 }
-
