@@ -34,8 +34,8 @@
 #' yes_no_bar(9999, n = 22166, fill=c("green", "pink"),
 #'     labs = c("Go:", "Stop"), color = "grey30", digits=0)
 yes_no_bar <- function(n.yes, n.no = NULL, n = NULL, labs = c("Yes", "No"),
-                       digits = 1, fill = c("#51A651", "white"), color = "#CAE4CA",
-                       border = "grey70", size = 10, include.percent = c(TRUE, FALSE)){
+   digits = 1, fill = c("#51A651", "white"), color = "#CAE4CA",
+   border = "grey70", size = 10, include.percent = c(TRUE, FALSE)){
 
     prop <- diffs <- aes <- pos <- percent <- NULL
 
@@ -66,8 +66,8 @@ yes_no_bar <- function(n.yes, n.no = NULL, n = NULL, labs = c("Yes", "No"),
         ggplot2::scale_y_continuous(label=scales::percent) +
         ggplot2::scale_fill_manual(values=fill[2:1]) +
         ggplot2::geom_text(ggplot2::aes(y =pos, label=ifelse(c(TRUE, FALSE),
-                                                             paste0(sprintf("%s", bar[[1]][1]), percent, "\n",  pc(n)),
-                                                             paste0(sprintf("%s", bar[[1]][2]),  percent, "\n", pc(n))
+             paste0(sprintf("%s", bar[[1]][1]), percent, "\n",  pc(n)),
+             paste0(sprintf("%s", bar[[1]][2]),  percent, "\n", pc(n))
         )), size=size, color=color) +
         ggplot2::theme_minimal() +
         ggplot2::theme(
