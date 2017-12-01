@@ -1,20 +1,17 @@
 #helper function
+#' @importFrom tools find_gs_cmd
 mergePDF <-
   function(..., file, gsversion = NULL, in.file = NULL) {
     if (is.null(in.file)) {
       in.file <- substitute(...())
-    } 
-    infiles <- paste(unlist(lapply(in.file, function(y) as.character(y))), 
-        collapse = " ")
+    }
+    infiles <- unlist(lapply(in.file, function(y) as.character(y)))
     if (is.null(gsversion)) {
-      gsversion <- names(which(Sys.which(c("gs", "gswin32c", "gswin64c")) != ""))
-      if (length(gsversion) == 0) 
-        stop("Please install Ghostscript and ensure it is in your PATH")
-      if (length(gsversion) > 1)
-        stop("More than one Ghostscript executable was found:", 
-             paste(gsversion, collapse = " "), 
-             ". Please specify which version should be used with the gsversion argument")
-    }   
-    pre = " -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile="
-    system(paste(paste(gsversion, pre, file, sep = ""), infiles, collapse = " "))
+      gsversion <- find_gs_cmd()
+      if (!nzchar(gsversion))
+        stop("Please install Ghostscript and see ?tools::find_gs_cmd")
+    }
+    pre <- c("-dBATCH", "-dNOPAUSE", "-q", "-sDEVICE=pdfwrite")
+    out <- paste0("-sOutputFile=", shQuote(file))
+    system2(gsversion, c(pre, out, shQuote(infiles)))
 }
