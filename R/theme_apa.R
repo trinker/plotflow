@@ -6,7 +6,6 @@
 #' @export
 #' @seealso \code{\link[ggplot2]{theme}}
 #' @importFrom ggplot2 theme_bw theme element_blank element_text element_line element_rect
-#' @importFrom grDevices windowsFont
 #' @examples
 #' \dontrun{
 #' ggplot(reorder_by(cyl, ~-cyl , mtcars, length), aes(x=as.factor(cyl))) +
@@ -38,7 +37,7 @@ theme_apa <- function(plot.box = FALSE){
     }
 
     if (Sys.info()["sysname"] == "Windows") {
-        windowsFonts(RMN=windowsFont("Times New Roman"))
+        grDevices::windowsFonts(RMN=grDevices::windowsFont("Times New Roman"))
         RMN <- "RMN"
     } else {
         RMN <- "Times New Roman"
