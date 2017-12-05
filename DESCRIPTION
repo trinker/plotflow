@@ -1,8 +1,8 @@
 Package: plotflow
 Type: Package
 Title: Tools to Speed Up Workflow Associated with Plotting
-Version: 0.2.0
-Date: 2017-12-01
+Version: 0.2.1
+Date: 2017-12-05
 Author: Tyler Rinker, Ananda Mahto, Mikko Korpela
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Description: Plotting functions not found in other plotting packages.

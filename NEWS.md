@@ -1,3 +1,7 @@
+# plotflow 0.2.1
+
+* Fixed a bug introduced in 0.2.0 where the package only worked on Windows
+
 # plotflow 0.2.0
 
 * Package was updated for compatibility with ggplot2 >= 2.2.0 (now required).
