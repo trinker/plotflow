@@ -17,7 +17,7 @@ You can, however, download the [zip ball](https://github.com/trinker/plotflow/zi
 # install.packages("devtools")
 
 library(devtools)
-install_github("plotflow", "trinker")
+install_github("trinker/plotflow")
 ```
 
 ## Installing Ghostscript

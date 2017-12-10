@@ -1,4 +1,8 @@
-if (!require("pacman")) install.packages("pacman")
+if (file.exists("~/.Rprofile")) source("~/.Rprofile")
+
+if (interactive()) {
+
+if (!require("pacman")) utils::install.packages("pacman")
 pacman::p_load(qdap, reports)
 
 update_version <- function(ver = NULL){
@@ -8,12 +12,13 @@ update_version <- function(ver = NULL){
     loc <- grep(regex, desc)
     ver <- ifelse(is.null(ver), as.numeric(gsub(regex, "\\2", desc[loc])) + 1, ver)
     desc[loc] <- sprintf(gsub(regex, "\\1%s", desc[loc]), ver)
-    cat(paste(desc, collapse="\n"), file="DESCRIPTION")
+    cat(paste0(paste(desc, collapse="\n"), "\n"), file="DESCRIPTION")
 
     cit <- suppressWarnings(readLines("inst/CITATION"))
     regex2 <- '(version\\s+\\d+\\.\\d+\\.)(\\d+)([."])'
     cit <- paste(cit, collapse="\n")
-    cat(gsub(regex2, paste0("\\1", ver, "\\3"), cit), file = "inst/CITATION")
+    cat(paste0(gsub(regex2, paste0("\\1", ver, "\\3"), cit), "\n"),
+        file = "inst/CITATION")
     message(sprintf("Updated to version: %s", ver))
 }
 
@@ -102,9 +107,9 @@ md_toc <- function(path = "README.md", repo = basename(getwd()),
 
     beg <- grep("^You are welcome", x)
     end <- grep("compose a friendly", x)
-    
+
     x[beg] <- sprintf(contact, repo, repo)
-    
+
     x <- x[!seq_along(x) %in% (1+beg:end)]
 
     a <- grep("<table>", x)
@@ -125,6 +130,6 @@ contact <- paste(c(
     "- send a pull request on: <https://github.com/trinker/%s/>    ",
     "- compose a friendly e-mail to: <tyler.rinker@gmail.com>    "
 ), collapse="\n")
-    
-    
-    
+
+
+}# end if (interactive())
